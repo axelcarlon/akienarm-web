@@ -1,0 +1,34 @@
+:root{--primary:#4FC78A;--brand:#6A6FE0;--ink:#1f2a37;--soft:#5b6b7b;--bg:#f6f8fc;--surface:#fff;--line:#e3e8ef}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65}
+a{color:var(--brand)}
+.wrap{max-width:820px;margin:0 auto;padding:0 1.2rem}
+header.site{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:.6rem;min-height:64px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:.4rem;font-weight:800;font-size:1.2rem;color:var(--brand);text-decoration:none}
+.brand b{color:var(--primary)}
+nav.site a{margin-left:.9rem;color:var(--soft);text-decoration:none;font-size:.9rem;font-weight:600}
+nav.site a:hover{color:var(--brand)}
+main{padding:2rem 0 3rem}
+h1{font-size:1.9rem;margin:.2rem 0 .5rem;color:var(--brand);line-height:1.2}
+h2{font-size:1.25rem;margin:1.8rem 0 .5rem;color:var(--ink)}
+h3{font-size:1.02rem;margin:1.1rem 0 .3rem}
+.muted{color:var(--soft);font-size:.88rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.3rem;margin:1rem 0}
+.disclaimer{background:#fff7ed;border:1px solid #fed7aa;border-radius:14px;padding:1rem 1.2rem;margin:1.2rem 0;font-size:.95rem}
+.btn{display:inline-block;background:var(--primary);color:#fff;text-decoration:none;font-weight:800;padding:.8rem 1.4rem;border-radius:12px;margin:.3rem .4rem .3rem 0}
+.btn.alt{background:var(--brand)}
+ul{padding-left:1.2rem}
+li{margin:.3rem 0}
+footer.site{border-top:1px solid var(--line);background:var(--surface);padding:1.6rem 0;margin-top:2rem;font-size:.85rem;color:var(--soft)}
+footer.site a{color:var(--soft)}
+footer.site p{margin:.35rem 0}
+table{width:100%;border-collapse:collapse;margin:.7rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.5rem .6rem;text-align:left;vertical-align:top}
+th{background:#eef2f9}
+.hero{text-align:center;padding:1.4rem 0 .4rem}
+.hero img{width:150px;height:auto;filter:drop-shadow(0 10px 24px rgba(0,0,0,.12))}
+.hero h1{color:var(--brand)}
+.hero .tag{color:var(--soft);font-size:1.05rem;max-width:520px;margin:.4rem auto 1rem}
+.stores{margin:.6rem 0}
+.stores span{display:inline-block;border:1px solid var(--line);background:var(--surface);color:var(--soft);border-radius:10px;padding:.5rem .9rem;margin:.25rem;font-size:.85rem;font-weight:700}
