@@ -9,7 +9,7 @@ header.site .wrap{display:flex;align-items:center;justify-content:space-between;
 .brand b{color:var(--primary)}
 nav.site a{margin-left:.9rem;color:var(--soft);text-decoration:none;font-size:.9rem;font-weight:600}
 nav.site a:hover{color:var(--brand)}
-main{padding:2rem 0 3rem}
+main{padding:.9rem 0 3rem}
 h1{font-size:1.9rem;margin:.2rem 0 .5rem;color:var(--brand);line-height:1.2}
 h2{font-size:1.25rem;margin:1.8rem 0 .5rem;color:var(--ink)}
 h3{font-size:1.02rem;margin:1.1rem 0 .3rem}
@@ -26,7 +26,7 @@ footer.site p{margin:.35rem 0}
 table{width:100%;border-collapse:collapse;margin:.7rem 0;font-size:.92rem}
 th,td{border:1px solid var(--line);padding:.5rem .6rem;text-align:left;vertical-align:top}
 th{background:#eef2f9}
-.hero{text-align:center;padding:1.4rem 0 .4rem}
+.hero{text-align:center;padding:.8rem 0 .4rem}
 .hero img{width:150px;height:auto;filter:drop-shadow(0 10px 24px rgba(0,0,0,.12))}
 .hero h1{color:var(--brand)}
 .hero .tag{color:var(--soft);font-size:1.05rem;max-width:520px;margin:.4rem auto 1rem}
