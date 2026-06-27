@@ -51,8 +51,8 @@ th{background:#eef2f9}
 .step h3{margin:.1rem 0 .35rem;color:var(--brand)}
 .step p{margin:0;font-size:.92rem}
 .arr{width:1em;height:1em;vertical-align:-.14em;margin-left:.45em}
-.anydev a.jump{font-weight:700;text-decoration:none;white-space:nowrap}
-.anydev a.jump:hover{text-decoration:underline}
+.anydev .jump{display:inline;background:none;border:0;padding:0;font:inherit;color:var(--brand);font-weight:700;cursor:pointer;white-space:nowrap}
+.anydev .jump:hover{text-decoration:underline}
 .step .os{margin:0 0 .4rem;font-size:.74rem;font-weight:800;color:var(--soft);text-transform:uppercase;letter-spacing:.05em}
 .step ol{margin:.2rem 0 0;padding-left:1.25rem}
 .step ol li{margin:.28rem 0;font-size:.9rem}
