@@ -1,100 +1,260 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" class="sin-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AKI ENARM · Prepárate para el ENARM con casos basados en evidencia</title>
 <meta name="description" content="AKI ENARM es una app educativa para preparar el Examen Nacional de Aspirantes a Residencias Médicas (ENARM) con casos clínicos, simuladores y fichas basadas en guías de práctica clínica.">
+<link rel="canonical" href="https://akienarm.com/">
+<meta name="theme-color" content="#0b0d12">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AKI ENARM">
+<meta property="og:title" content="AKI ENARM · Prepárate para el ENARM, a tu ritmo">
+<meta property="og:description" content="Casos clínicos, simuladores tipo examen y fichas basadas en guías de práctica clínica, en un camino gamificado.">
+<meta property="og:url" content="https://akienarm.com/">
+<meta property="og:image" content="https://akienarm.com/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_MX">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AKI ENARM · Prepárate para el ENARM, a tu ritmo">
+<meta name="twitter:description" content="Casos clínicos, simuladores tipo examen y fichas basadas en guías de práctica clínica, en un camino gamificado.">
+<meta name="twitter:image" content="https://akienarm.com/assets/og-image.jpg">
+<link rel="icon" href="/assets/favicon-48.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@800;900&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@800;900&display=swap"></noscript>
 <link rel="stylesheet" href="/styles.css">
+<link rel="preload" as="image" href="/assets/aki-hero.webp" fetchpriority="high">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "AKI ENARM",
+  "url": "https://akienarm.com/",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "es-MX",
+  "description": "App educativa para preparar el ENARM con casos clínicos, simuladores y fichas basadas en guías de práctica clínica.",
+  "author": { "@type": "Person", "name": "Luis Axel Carlón González", "email": "axelcarlong@gmail.com" }
+}
+</script>
 </head>
 <body>
 <header class="site"><div class="wrap">
-  <a class="brand" href="/">AKI <b>ENARM</b></a>
-  <nav class="site"><a href="/">Inicio</a><a href="/privacidad">Privacidad</a><a href="/terminos">Términos</a><a href="/borrar-datos">Borrar datos</a><a href="/soporte">Soporte</a></nav>
+  <a class="brand" href="/"><img src="/assets/favicon-48.png" alt="" width="30" height="30">AKI <b>ENARM</b></a>
+  <nav class="site">
+    <a class="solo-desktop" href="#camino">Qué incluye</a>
+    <a class="solo-desktop" href="#instalar">Instalar</a>
+    <a class="solo-desktop" href="/soporte">Soporte</a>
+    <button class="tema-btn" id="temaBtn" type="button" aria-label="Cambiar tema claro u oscuro">◐</button>
+    <a class="cta-header" href="https://app.akienarm.com" target="_blank" rel="noopener">Abrir AKI</a>
+  </nav>
+  <div class="progreso" id="progreso"></div>
 </div></header>
 
-<main><div class="wrap">
-  <section class="hero">
-    <img src="aki.png" alt="AKI, la mascota de AKI ENARM">
-    <h1>Prepárate para el ENARM, a tu ritmo</h1>
-    <p class="tag">AKI ENARM es tu compañero de estudio: casos clínicos, simuladores tipo examen y fichas basadas en guías de práctica clínica, en un camino gamificado.</p>
-    <a class="btn big" href="https://app.akienarm.com" target="_blank" rel="noopener">Abrir AKI<svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h14m-5-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    <p class="anydev">Funciona en <b>cualquier dispositivo</b>: computadora, tablet o celular, directo en el navegador. <button class="jump" type="button" onclick="document.querySelector('.getapp').scrollIntoView({behavior:'smooth'})">Cómo instalarla<svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v14m-6-5 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></p>
-    <div class="stores">
-      <a class="store live" href="https://app.akienarm.com" target="_blank" rel="noopener">✓ Disponible ahora · App web</a>
-      <span>Próximamente en App Store</span>
-      <span>Próximamente en Google Play</span>
+<main>
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="inicio">
+    <div class="hero-aurora"></div>
+    <div class="hero-estrellas"></div>
+    <div class="hero-particulas" aria-hidden="true">
+      <i style="left:12%;width:5px;height:5px;background:rgba(255,255,255,.55);animation-duration:7.5s;animation-delay:0s"></i>
+      <i style="left:22%;width:4px;height:4px;background:rgba(79,199,138,.55);animation-duration:9s;animation-delay:1.5s"></i>
+      <i style="left:34%;width:6px;height:6px;background:rgba(106,111,224,.5);animation-duration:8s;animation-delay:.6s"></i>
+      <i style="left:52%;width:3px;height:3px;background:rgba(255,255,255,.5);animation-duration:10s;animation-delay:2.2s"></i>
+      <i style="left:68%;width:5px;height:5px;background:rgba(255,200,0,.45);animation-duration:8.5s;animation-delay:1s"></i>
+      <i style="left:81%;width:4px;height:4px;background:rgba(106,111,224,.5);animation-duration:9.5s;animation-delay:.3s"></i>
+      <i style="left:91%;width:3px;height:3px;background:rgba(255,255,255,.45);animation-duration:7s;animation-delay:2.8s"></i>
+    </div>
+    <div class="hero-glow"></div>
+    <div class="hero-contenido">
+      <img class="hero-aki" src="/assets/aki-hero.webp" alt="AKI, la mascota de AKI ENARM" width="750" height="1000" fetchpriority="high">
+      <h1>Prepárate para el ENARM, a tu ritmo</h1>
+      <p class="tag">AKI ENARM es tu compañero de estudio: casos clínicos, simuladores tipo examen y fichas basadas en guías de práctica clínica, en un camino gamificado.</p>
+      <div class="hero-acciones">
+        <a class="btn-hero" href="https://app.akienarm.com" target="_blank" rel="noopener">Abrir AKI<svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h14m-5-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <p class="anydev">Funciona en <b>cualquier dispositivo</b>: computadora, tablet o celular, directo en el navegador. <button class="jump" type="button" id="irInstalar">Cómo instalarla<svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v14m-6-5 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></p>
+        <div class="stores">
+          <a class="store live" href="https://app.akienarm.com" target="_blank" rel="noopener">✓ Disponible ahora · App web</a>
+          <span>Próximamente en App Store</span>
+          <span>Próximamente en Google Play</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-cue" aria-hidden="true">Desliza</div>
+  </section>
+
+  <!-- ============ CIFRAS VERIFICADAS ============ -->
+  <section class="cifras" aria-label="Cifras de contenido">
+    <div class="wrap">
+      <div class="cifra reveal" style="--i:0"><b class="contador" data-fin="7989">0</b><span>ejercicios en total</span></div>
+      <div class="cifra reveal" style="--i:1"><b class="contador" data-fin="417">0</b><span>temas con su fuente</span></div>
+      <div class="cifra reveal" style="--i:2"><b class="contador" data-fin="2055">0</b><span>casos seriados</span></div>
+      <div class="cifra reveal" style="--i:3"><b class="contador" data-fin="727">0</b><span>flujogramas de decisión</span></div>
+      <p class="nota reveal" style="--i:4">7,989 ejercicios: 5,517 reactivos, 2,055 casos seriados y 417 casos en inglés. Contenido de elaboración propia, apoyado en guías de práctica clínica públicas.</p>
     </div>
   </section>
 
-  <div class="disclaimer">
-    <strong>Aviso importante:</strong> AKI ENARM es una herramienta con fines exclusivamente <strong>educativos</strong> para la preparación de exámenes. <strong>No</strong> es un dispositivo médico, no ofrece diagnósticos ni tratamientos para pacientes reales y <strong>no sustituye el juicio clínico profesional</strong> ni la consulta con un médico. AKI ENARM no está afiliado ni avalado por la CIFRHS, la Secretaría de Salud de México ni ninguna institución gubernamental.
+  <!-- ============ FEATURE: CAMINO ============ -->
+  <section class="feature" id="camino">
+    <div class="wrap">
+      <div class="media reveal">
+        <div class="halo halo-verde"></div>
+        <img class="telefono tilt" src="/assets/shot-camino.webp" alt="Camino de estudio de AKI ENARM" loading="lazy" width="460" height="818">
+      </div>
+      <div class="texto">
+        <span class="eyebrow reveal" style="--i:0"><img src="/assets/libro-3d.webp" alt="" width="26" height="26" loading="lazy">Camino de estudio</span>
+        <h2 class="reveal" style="--i:1">Tu camino al ENARM</h2>
+        <p class="reveal" style="--i:2"><strong>Camino de estudio gamificado</strong> por especialidad, isla por isla. Avanza a través de <strong>417 temas</strong> organizados por especialidad: cada sección es un tema real del ENARM, con flashcards, algoritmos, duelos, casos y un reto final.</p>
+        <p class="reveal" style="--i:3">Racha diaria, ligas semanales, cofres, gemas y celebraciones que hacen que estudiar todos los días se sienta como avanzar de verdad.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURE: VERIFICADO ============ -->
+  <section class="feature invertida" id="verificado">
+    <div class="wrap">
+      <div class="media reveal">
+        <div class="halo halo-violeta"></div>
+        <div class="media-doble">
+          <img class="pose" src="/assets/sello-escudo.webp" alt="Sello de contenido verificado" loading="lazy" width="320" height="320">
+          <img class="telefono tilt" src="/assets/shot-ficha.webp" alt="Ficha de estudio basada en GPC" loading="lazy" width="460" height="818">
+        </div>
+      </div>
+      <div class="texto">
+        <span class="eyebrow reveal" style="--i:0"><img src="/assets/sello-escudo.webp" alt="" width="26" height="26" loading="lazy">Contenido original</span>
+        <h2 class="reveal" style="--i:1">Cada respuesta, verificada</h2>
+        <p class="reveal" style="--i:2">Más de 7,900 ejercicios (reactivos, casos clínicos seriados paso a paso y casos en inglés) nacidos del texto de su guía oficial. Toca el sello <strong>Verificado</strong> de cualquier explicación y comprueba tú mismo de qué guía sale.</p>
+        <p class="reveal" style="--i:3">Todos los reactivos y casos son <strong>de elaboración propia (tipo ENARM)</strong> y se apoyan, como referencia, en Guías de Práctica Clínica públicas. AKI ENARM no reproduce reactivos oficiales del examen.</p>
+        <div class="chips reveal" style="--i:4">
+          <span>GPC · IMSS</span><span>ISSSTE</span><span>Secretaría de Salud</span><span>CENETEC</span><span>NOM</span><span>GINA</span><span>GOLD</span><span>KDIGO</span><span>ESC</span><span>AHA</span><span>NICE</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURE: DUELOS ============ -->
+  <section class="feature" id="duelos">
+    <div class="wrap">
+      <div class="media reveal">
+        <div class="halo halo-oro"></div>
+        <img class="telefono tilt" src="/assets/shot-duelo.webp" alt="Modo duelo de AKI ENARM" loading="lazy" width="460" height="818">
+      </div>
+      <div class="texto">
+        <span class="eyebrow reveal" style="--i:0"><img src="/assets/icon-duelo.webp" alt="" width="26" height="26" loading="lazy">Duelos</span>
+        <h2 class="reveal" style="--i:1">Duelos médicos en tiempo real</h2>
+        <p class="reveal" style="--i:2">Reta a un amigo en línea, comparte pantalla en 1 vs 1 o mide tu velocidad contra la IA. La misma pregunta, dos cerebros: <strong>gana quien acierta más rápido</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURE: SIMULADORES ============ -->
+  <section class="feature invertida" id="simuladores">
+    <div class="wrap">
+      <div class="media reveal">
+        <div class="halo halo-verde"></div>
+        <img class="telefono tilt" src="/assets/shot-simuladores.webp" alt="Simuladores tipo ENARM en AKI" loading="lazy" width="460" height="818">
+      </div>
+      <div class="texto">
+        <span class="eyebrow reveal" style="--i:0"><img src="/assets/icon-flashcards.webp" alt="" width="26" height="26" loading="lazy">Simuladores y repaso</span>
+        <h2 class="reveal" style="--i:1">Simuladores a tu medida</h2>
+        <p class="reveal" style="--i:2">Casos individuales por especialidad con feedback inmediato, casos seriados con la secuencia completa (diagnóstico, estudio, tratamiento) y el <strong>Simulador Real</strong> estilo ENARM: 280 reactivos, distribución oficial y sección en inglés, con el tiempo y las reglas del examen.</p>
+        <p class="reveal" style="--i:3"><strong>Repaso que sí funciona</strong>: repetición espaciada (SRS) con flashcards de fármacos y perlas clínicas, libreta automática de fallos para repetir exactamente lo que se te escapa, y un plan diario que se adapta a tus debilidades reales.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURE: CONSTANCIA + VIDEO ============ -->
+  <section class="feature" id="constancia">
+    <div class="wrap">
+      <div class="media reveal">
+        <video class="video-cofre" id="videoCofre" muted loop playsinline preload="none" poster="/assets/cofre-poster.webp" width="960" height="540" aria-label="Cofre de recompensas de AKI ENARM">
+          <source data-src="/assets/video-cofre.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="texto">
+        <span class="eyebrow reveal" style="--i:0"><img src="/assets/aki-racha.webp" alt="" width="26" height="26" loading="lazy">Constancia</span>
+        <h2 class="reveal" style="--i:1">Constancia que se siente</h2>
+        <p class="reveal" style="--i:2">Racha diaria, ligas semanales, cofres, gemas, marcos de avatar y celebraciones. Tu ENARM se construye <strong>un día a la vez</strong>.</p>
+        <p class="reveal" style="--i:3"><strong>📴 Sin conexión</strong>: estudia donde sea, la app funciona sin internet desde la primera visita.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INSTALACION ============ -->
+  <section class="instalar" id="instalar">
+    <div class="wrap">
+      <h2 class="reveal">Instálala en cualquier dispositivo</h2>
+      <p class="reveal" style="--i:1">La misma AKI en tu <b>computadora, tablet o celular</b>. Funciona directo en el navegador y, si quieres, la instalas como app, sin tienda.</p>
+      <div class="pasos">
+        <div class="paso reveal" style="--i:0">
+          <h3>Computadora</h3>
+          <p class="os">Windows · Mac · Linux</p>
+          <ol>
+            <li>Abre <b>app.akienarm.com</b> en Chrome o Edge.</li>
+            <li>Haz clic en el icono <b>Instalar</b> de la barra de direcciones.</li>
+            <li>Confirma <b>Instalar</b>.</li>
+          </ol>
+        </div>
+        <div class="paso reveal" style="--i:1">
+          <h3>Android</h3>
+          <p class="os">Chrome</p>
+          <ol>
+            <li>Abre <b>app.akienarm.com</b> en Chrome.</li>
+            <li>Toca el menú <b>⋮</b> (arriba a la derecha).</li>
+            <li>Elige <b>Instalar app</b>.</li>
+          </ol>
+        </div>
+        <div class="paso reveal" style="--i:2">
+          <h3>iPhone · iPad</h3>
+          <p class="os">Safari</p>
+          <ol>
+            <li>Abre <b>app.akienarm.com</b> en Safari.</li>
+            <li>Toca el botón <b>Compartir</b>.</li>
+            <li>Elige <b>Añadir a inicio</b>.</li>
+          </ol>
+        </div>
+      </div>
+      <p class="offline-nota reveal">📴 Una vez instalada, funciona sin internet desde la primera visita.</p>
+    </div>
+  </section>
+
+  <!-- ============ AVISO ============ -->
+  <div class="wrap-angosto">
+    <div class="aviso reveal">
+      <strong>Aviso importante:</strong> AKI ENARM es una herramienta con fines exclusivamente <strong>educativos</strong> para la preparación de exámenes. <strong>No</strong> es un dispositivo médico, no ofrece diagnósticos ni tratamientos para pacientes reales y <strong>no sustituye el juicio clínico profesional</strong> ni la consulta con un médico. AKI ENARM no está afiliado ni avalado por la CIFRHS, la Secretaría de Salud de México ni ninguna institución gubernamental.
+    </div>
   </div>
 
-  <section class="getapp">
-    <h2>Instálala en cualquier dispositivo</h2>
-    <p>La misma AKI en tu <b>computadora, tablet o celular</b>. Funciona directo en el navegador y, si quieres, la instalas como app, sin tienda.</p>
-    <div class="shots">
-      <img class="shot float1" src="shots/shot-camino.png" alt="Camino de estudio de AKI ENARM" loading="lazy" width="150">
-      <img class="shot float2" src="shots/shot-simuladores.png" alt="Simuladores tipo ENARM en AKI" loading="lazy" width="150">
-      <img class="shot float3" src="shots/shot-ficha.png" alt="Ficha de estudio basada en GPC" loading="lazy" width="150">
-      <img class="shot float4" src="shots/shot-duelo.png" alt="Modo duelo de AKI ENARM" loading="lazy" width="150">
-    </div>
-    <div class="steps">
-      <div class="step">
-        <h3>Computadora</h3>
-        <p class="os">Windows · Mac · Linux</p>
-        <ol>
-          <li>Abre <b>app.akienarm.com</b> en Chrome o Edge.</li>
-          <li>Haz clic en el icono <b>Instalar</b> de la barra de direcciones.</li>
-          <li>Confirma <b>Instalar</b>.</li>
-        </ol>
-      </div>
-      <div class="step">
-        <h3>Android</h3>
-        <p class="os">Chrome</p>
-        <ol>
-          <li>Abre <b>app.akienarm.com</b> en Chrome.</li>
-          <li>Toca el menú <b>⋮</b> (arriba a la derecha).</li>
-          <li>Elige <b>Instalar app</b>.</li>
-        </ol>
-      </div>
-      <div class="step">
-        <h3>iPhone · iPad</h3>
-        <p class="os">Safari</p>
-        <ol>
-          <li>Abre <b>app.akienarm.com</b> en Safari.</li>
-          <li>Toca el botón <b>Compartir</b>.</li>
-          <li>Elige <b>Añadir a inicio</b>.</li>
-        </ol>
-      </div>
-    </div>
+  <!-- ============ CIERRE ============ -->
+  <section class="cierre">
+    <img class="pose reveal" src="/assets/aki-victoria.webp" alt="AKI celebrando con un trofeo" loading="lazy" width="320" height="320">
+    <h2 class="reveal" style="--i:1">Tu ENARM se construye un día a la vez</h2>
+    <p class="reveal" style="--i:2">Empieza hoy. Funciona en cualquier dispositivo, directo en el navegador.</p>
+    <div class="reveal" style="--i:3"><a class="btn-hero" href="https://app.akienarm.com" target="_blank" rel="noopener">Abrir AKI<svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h14m-5-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
   </section>
 
-  <h2>¿Qué incluye?</h2>
-  <ul>
-    <li><strong>Camino de estudio</strong> gamificado por especialidad, isla por isla.</li>
-    <li><strong>Casos clínicos</strong> individuales y seriados, con explicación y referencia a la GPC.</li>
-    <li><strong>Simulador Real</strong> estilo ENARM (280 reactivos, distribución oficial), con sección en inglés.</li>
-    <li><strong>Duelos</strong> de preguntas, flashcards con repaso espaciado y biblioteca de fichas.</li>
-  </ul>
-
-  <h2>Contenido original</h2>
-  <p>Todos los reactivos y casos son <strong>de elaboración propia (“tipo ENARM”)</strong> y se apoyan, como referencia, en Guías de Práctica Clínica públicas. AKI ENARM no reproduce reactivos oficiales del examen.</p>
-
-  <h2>Legal y soporte</h2>
-  <p>
-    <a class="btn alt" href="/privacidad">Aviso de Privacidad</a>
-    <a class="btn alt" href="/terminos">Términos y Condiciones</a>
-    <a class="btn" href="/borrar-datos">Eliminar cuenta y datos</a>
-  </p>
-  <p class="muted">¿Dudas? Escríbenos a <a href="mailto:axelcarlong@gmail.com">axelcarlong@gmail.com</a> o visita <a href="/soporte">Soporte</a>.</p>
-</div></main>
+  <!-- ============ LEGAL ============ -->
+  <div class="wrap" id="legal">
+    <h2 class="reveal" style="text-align:center; margin:2.6rem 0 1rem; font-size:1.5rem">Legal y soporte</h2>
+    <p class="legal-botones reveal" style="--i:1">
+      <a class="btn alt" href="/privacidad">Aviso de Privacidad</a>
+      <a class="btn alt" href="/terminos">Términos y Condiciones</a>
+      <a class="btn" href="/borrar-datos">Eliminar cuenta y datos</a>
+    </p>
+    <p class="muted" style="text-align:center; margin-top:-1.4rem; padding-bottom:2.2rem">¿Dudas? Escríbenos a <a href="mailto:axelcarlong@gmail.com">axelcarlong@gmail.com</a> o visita <a href="/soporte">Soporte</a>.</p>
+  </div>
+</main>
 
 <footer class="site"><div class="wrap">
   <p>© 2026 AKI ENARM · Responsable: Luis Axel Carlón González · Contacto: <a href="mailto:axelcarlong@gmail.com">axelcarlong@gmail.com</a></p>
   <p><a href="/privacidad">Aviso de Privacidad</a> · <a href="/terminos">Términos y Condiciones</a> · <a href="/borrar-datos">Eliminar cuenta y datos</a> · <a href="/soporte">Soporte</a></p>
   <p class="muted">AKI ENARM es una herramienta educativa; no es un dispositivo médico ni sustituye el juicio clínico profesional. Sin afiliación con la CIFRHS ni la Secretaría de Salud de México.</p>
 </div></footer>
+
+<script src="/site.js" defer></script>
 </body>
 </html>
