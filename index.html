@@ -58,6 +58,10 @@
 <main>
   <!-- ============ HERO ============ -->
   <section class="hero" id="inicio">
+    <img class="hero-nebulosa" id="nebulosa" alt="" aria-hidden="true" width="1920" height="815"
+      src="/assets/nebulosa-960.webp"
+      srcset="/assets/nebulosa-960.webp 960w, /assets/nebulosa-1920.webp 1920w"
+      sizes="100vw" fetchpriority="low" decoding="async">
     <div class="hero-aurora"></div>
     <div class="hero-estrellas"></div>
     <div class="hero-particulas" aria-hidden="true">
@@ -70,8 +74,9 @@
       <i style="left:91%;width:3px;height:3px;background:rgba(255,255,255,.45);animation-duration:7s;animation-delay:2.8s"></i>
     </div>
     <div class="hero-glow"></div>
+    <div class="hero-cursor-glow" id="cursorGlow" aria-hidden="true"></div>
     <div class="hero-contenido">
-      <img class="hero-aki" src="/assets/aki-hero.webp" alt="AKI, la mascota de AKI ENARM" width="750" height="1000" fetchpriority="high">
+      <div class="hero-aki-wrap" id="akiWrap"><img class="hero-aki" src="/assets/aki-hero.webp" alt="AKI, la mascota de AKI ENARM" width="750" height="1000" fetchpriority="high"></div>
       <h1>Prepárate para el ENARM, a tu ritmo</h1>
       <p class="tag">AKI ENARM es tu compañero de estudio: casos clínicos, simuladores tipo examen y fichas basadas en guías de práctica clínica, en un camino gamificado.</p>
       <div class="hero-acciones">

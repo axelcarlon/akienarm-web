@@ -63,24 +63,53 @@
     contadores.forEach(function (el) { el.textContent = formatea(parseInt(el.getAttribute('data-fin'), 10) || 0); });
   }
 
-  /* ---------- header sobre-hero + barra de progreso (un solo scroll handler, rAF) ---------- */
+  /* ---------- header sobre-hero + progreso + parallax del hero (un solo rAF) ---------- */
   var progreso = document.getElementById('progreso');
   var header = document.querySelector('header.site');
   var hayHero = !!document.querySelector('.hero');
+  var nebulosa = document.getElementById('nebulosa');
+  var akiWrap = document.getElementById('akiWrap');
   function pintaScroll() {
     marcado = false;
+    var y = window.scrollY;
     if (progreso && !reduceMotion) {
       var h = document.documentElement.scrollHeight - window.innerHeight;
-      var p = h > 0 ? Math.min(window.scrollY / h, 1) : 0;
+      var p = h > 0 ? Math.min(y / h, 1) : 0;
       progreso.style.transform = 'scaleX(' + p.toFixed(4) + ')';
     }
-    if (header && hayHero) header.classList.toggle('sobre-hero', window.scrollY < 40);
+    if (header && hayHero) header.classList.toggle('sobre-hero', y < 40);
+    /* parallax por capas (solo mientras el hero esta en pantalla; transform-only) */
+    if (hayHero && !reduceMotion && y < window.innerHeight * 1.2) {
+      if (nebulosa) nebulosa.style.transform = 'translateY(' + (y * 0.10).toFixed(1) + 'px)';
+      if (akiWrap) akiWrap.style.transform = 'translateY(' + (y * 0.22).toFixed(1) + 'px)';
+    }
   }
   var marcado = false;
   window.addEventListener('scroll', function () {
     if (!marcado) { marcado = true; requestAnimationFrame(pintaScroll); }
   }, { passive: true });
   pintaScroll();
+
+  /* ---------- nebulosa: fade-in al llegar ---------- */
+  if (nebulosa) {
+    if (nebulosa.complete && nebulosa.naturalWidth > 0) { nebulosa.classList.add('cargada'); }
+    else { nebulosa.addEventListener('load', function () { nebulosa.classList.add('cargada'); }); }
+  }
+
+  /* ---------- resplandor que sigue el cursor (desktop fino, sin RM) ---------- */
+  var cursorGlow = document.getElementById('cursorGlow');
+  if (cursorGlow && !reduceMotion && window.matchMedia('(hover:hover) and (pointer:fine)').matches) {
+    var hero = document.querySelector('.hero');
+    var glowMarco = null;
+    hero.addEventListener('pointermove', function (ev) {
+      if (glowMarco) return;
+      glowMarco = requestAnimationFrame(function () {
+        glowMarco = null;
+        var r = hero.getBoundingClientRect();
+        cursorGlow.style.transform = 'translate(' + (ev.clientX - r.left).toFixed(0) + 'px,' + (ev.clientY - r.top).toFixed(0) + 'px)';
+      });
+    });
+  }
 
   /* ---------- tilt 3D sutil de los shots (solo puntero fino, sin RM) ---------- */
   if (!reduceMotion && window.matchMedia('(hover:hover) and (pointer:fine)').matches) {
