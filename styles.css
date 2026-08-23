@@ -45,6 +45,13 @@
   }
 }
 
+/* ---------- transiciones de navegacion entre paginas (VT multipagina; no-op sin soporte) ---------- */
+@view-transition{ navigation:auto }
+header.site{view-transition-name:cabecera}
+@media (prefers-reduced-motion:reduce){
+  @view-transition{ navigation:none }
+}
+
 /* ---------- base ---------- */
 *{box-sizing:border-box}
 /* teclado: anillo de foco de la marca (solo :focus-visible, no al click) */
