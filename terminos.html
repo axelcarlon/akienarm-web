@@ -18,9 +18,16 @@
 <header class="site"><div class="wrap">
   <a class="brand" href="/"><img src="/assets/favicon-48.png" alt="" width="30" height="30">AKI <b>ENARM</b></a>
   <nav class="site">
-    <a class="solo-desktop" href="/privacidad">Privacidad</a>
-    <a class="solo-desktop" href="/terminos">Términos</a>
-    <a class="solo-desktop" href="/soporte">Soporte</a>
+    <a class="solo-desktop" href="/">Inicio</a>
+    <div class="menu-soporte" id="menuSoporte">
+      <button class="menu-btn" id="menuSoporteBtn" type="button" aria-haspopup="true" aria-expanded="false">Soporte<svg class="caret" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="menu-lista" role="menu" aria-label="Soporte y legal">
+        <a role="menuitem" href="/soporte">Soporte</a>
+        <a role="menuitem" href="/privacidad">Aviso de Privacidad</a>
+        <a role="menuitem" href="/terminos">Términos y Condiciones</a>
+        <a role="menuitem" href="/borrar-datos">Eliminar cuenta y datos</a>
+      </div>
+    </div>
     <button class="tema-btn" id="temaBtn" type="button" aria-label="Cambiar tema claro u oscuro">◐</button>
     <a class="cta-header" href="https://app.akienarm.com" target="_blank" rel="noopener">Abrir AKI</a>
   </nav>

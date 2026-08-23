@@ -49,7 +49,15 @@
   <nav class="site">
     <a class="solo-desktop" href="#camino">Qué incluye</a>
     <a class="solo-desktop" href="#instalar">Instalar</a>
-    <a class="solo-desktop" href="/soporte">Soporte</a>
+    <div class="menu-soporte" id="menuSoporte">
+      <button class="menu-btn" id="menuSoporteBtn" type="button" aria-haspopup="true" aria-expanded="false">Soporte<svg class="caret" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="menu-lista" role="menu" aria-label="Soporte y legal">
+        <a role="menuitem" href="/soporte">Soporte</a>
+        <a role="menuitem" href="/privacidad">Aviso de Privacidad</a>
+        <a role="menuitem" href="/terminos">Términos y Condiciones</a>
+        <a role="menuitem" href="/borrar-datos">Eliminar cuenta y datos</a>
+      </div>
+    </div>
     <button class="tema-btn" id="temaBtn" type="button" aria-label="Cambiar tema claro u oscuro">◐</button>
     <a class="cta-header" href="https://app.akienarm.com" target="_blank" rel="noopener">Abrir AKI</a>
   </nav>
@@ -96,11 +104,15 @@
   <!-- ============ CIFRAS VERIFICADAS ============ -->
   <section class="cifras" aria-label="Cifras de contenido">
     <div class="wrap">
-      <div class="cifra reveal" style="--i:0"><b class="contador" data-fin="7989">0</b><span>ejercicios en total</span></div>
-      <div class="cifra reveal" style="--i:1"><b class="contador" data-fin="417">0</b><span>temas con su fuente</span></div>
+      <div class="cifra reveal cifra-total" style="--i:0"><b class="contador" data-fin="7989">0</b><span>ejercicios en total</span></div>
+      <div class="cifra reveal" style="--i:1"><b class="contador" data-fin="5517">0</b><span>casos individuales</span></div>
       <div class="cifra reveal" style="--i:2"><b class="contador" data-fin="2055">0</b><span>casos seriados</span></div>
+      <div class="cifra reveal" style="--i:3"><b class="contador" data-fin="417">0</b><span>casos en inglés</span></div>
+      <div class="cifra reveal" style="--i:1"><b class="contador" data-fin="6133">0</b><span>pasos clínicos en seriados</span></div>
+      <div class="cifra reveal" style="--i:2"><b class="contador" data-fin="417">0</b><span>temas con su fuente</span></div>
       <div class="cifra reveal" style="--i:3"><b class="contador" data-fin="727">0</b><span>flujogramas de decisión</span></div>
-      <p class="nota reveal" style="--i:4">7,989 ejercicios: 5,517 reactivos, 2,055 casos seriados y 417 casos en inglés. Contenido de elaboración propia, apoyado en guías de práctica clínica públicas.</p>
+      <div class="cifra reveal" style="--i:4"><b class="contador" data-fin="280">0</b><span>reactivos · Simulador Real</span></div>
+      <p class="nota reveal" style="--i:5">7,989 ejercicios = 5,517 casos individuales + 2,055 seriados + 417 en inglés. Contenido de elaboración propia, apoyado en guías de práctica clínica públicas.</p>
     </div>
   </section>
 
@@ -109,7 +121,7 @@
     <div class="wrap">
       <div class="media reveal">
         <div class="halo halo-verde"></div>
-        <img class="telefono tilt" src="/assets/shot-camino.webp" alt="Camino de estudio de AKI ENARM" loading="lazy" width="460" height="818">
+        <img class="telefono tilt" src="/assets/shot-camino.webp" alt="Camino de estudio de AKI ENARM" loading="lazy" width="660" height="1428">
       </div>
       <div class="texto">
         <span class="eyebrow reveal" style="--i:0"><img src="/assets/libro-3d.webp" alt="" width="26" height="26" loading="lazy">Camino de estudio</span>
@@ -127,7 +139,7 @@
         <div class="halo halo-violeta"></div>
         <div class="media-doble">
           <img class="pose" src="/assets/sello-escudo.webp" alt="Sello de contenido verificado" loading="lazy" width="320" height="320">
-          <img class="telefono tilt" src="/assets/shot-ficha.webp" alt="Ficha de estudio basada en GPC" loading="lazy" width="460" height="818">
+          <img class="telefono tilt" src="/assets/shot-ficha.webp" alt="Ficha de estudio basada en GPC" loading="lazy" width="660" height="1428">
         </div>
       </div>
       <div class="texto">
@@ -147,7 +159,7 @@
     <div class="wrap">
       <div class="media reveal">
         <div class="halo halo-oro"></div>
-        <img class="telefono tilt" src="/assets/shot-duelo.webp" alt="Modo duelo de AKI ENARM" loading="lazy" width="460" height="818">
+        <img class="telefono tilt" src="/assets/shot-duelo.webp" alt="Modo duelo de AKI ENARM" loading="lazy" width="660" height="1428">
       </div>
       <div class="texto">
         <span class="eyebrow reveal" style="--i:0"><img src="/assets/icon-duelo.webp" alt="" width="26" height="26" loading="lazy">Duelos</span>
@@ -162,13 +174,14 @@
     <div class="wrap">
       <div class="media reveal">
         <div class="halo halo-verde"></div>
-        <img class="telefono tilt" src="/assets/shot-simuladores.webp" alt="Simuladores tipo ENARM en AKI" loading="lazy" width="460" height="818">
+        <img class="telefono tilt" src="/assets/shot-simuladores.webp" alt="Simuladores tipo ENARM en AKI" loading="lazy" width="660" height="1428">
       </div>
       <div class="texto">
         <span class="eyebrow reveal" style="--i:0"><img src="/assets/icon-flashcards.webp" alt="" width="26" height="26" loading="lazy">Simuladores y repaso</span>
         <h2 class="reveal" style="--i:1">Simuladores a tu medida</h2>
-        <p class="reveal" style="--i:2">Casos individuales por especialidad con feedback inmediato, casos seriados con la secuencia completa (diagnóstico, estudio, tratamiento) y el <strong>Simulador Real</strong> estilo ENARM: 280 reactivos, distribución oficial y sección en inglés, con el tiempo y las reglas del examen.</p>
-        <p class="reveal" style="--i:3"><strong>Repaso que sí funciona</strong>: repetición espaciada (SRS) con flashcards de fármacos y perlas clínicas, libreta automática de fallos para repetir exactamente lo que se te escapa, y un plan diario que se adapta a tus debilidades reales.</p>
+        <p class="reveal" style="--i:2">Tú eliges la combinación: <strong>5,517 casos individuales</strong> por especialidad con feedback inmediato, <strong>2,055 casos seriados</strong> con la secuencia completa (diagnóstico, estudio, tratamiento: 6,133 pasos clínicos) y <strong>417 casos en inglés</strong>.</p>
+        <p class="reveal" style="--i:3">Y cuando quieras medirte de verdad, el <strong>Simulador Real</strong> estilo ENARM: <strong>280 reactivos</strong>, distribución oficial por especialidad, sección en inglés, y el tiempo y las reglas del examen.</p>
+        <p class="reveal" style="--i:4"><strong>Repaso que sí funciona</strong>: repetición espaciada (SRS) con flashcards de fármacos y perlas clínicas, libreta automática de fallos para repetir exactamente lo que se te escapa, y un plan diario que se adapta a tus debilidades reales.</p>
       </div>
     </div>
   </section>

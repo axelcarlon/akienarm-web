@@ -162,6 +162,26 @@
     });
   }
 
+  /* ---------- menu Soporte: click/tap togglea; fuera o Escape cierran ---------- */
+  var menu = document.getElementById('menuSoporte');
+  var menuBtn = document.getElementById('menuSoporteBtn');
+  if (menu && menuBtn) {
+    function ponMenu(abierto) {
+      menu.classList.toggle('abierto', abierto);
+      menuBtn.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+    }
+    menuBtn.addEventListener('click', function (ev) {
+      ev.stopPropagation();
+      ponMenu(!menu.classList.contains('abierto'));
+    });
+    document.addEventListener('click', function (ev) {
+      if (menu.classList.contains('abierto') && !menu.contains(ev.target)) ponMenu(false);
+    });
+    document.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Escape' && menu.classList.contains('abierto')) { ponMenu(false); menuBtn.focus(); }
+    });
+  }
+
   /* ---------- scroll suave del boton "Como instalarla" ---------- */
   var irInstalar = document.getElementById('irInstalar');
   if (irInstalar) irInstalar.addEventListener('click', function () {

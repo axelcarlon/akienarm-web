@@ -95,21 +95,50 @@ header.site .wrap{display:flex; align-items:center; gap:.9rem; min-height:64px}
 .brand img{width:30px; height:30px; display:block}
 .brand b{color:var(--verde)}
 nav.site{margin-left:auto; display:flex; align-items:center; gap:1.1rem}
+@media (max-width:759px){ nav.site{gap:.7rem} }
 nav.site a{color:var(--soft); text-decoration:none; font-size:.92rem; font-weight:600}
 nav.site a:hover{color:var(--ink)}
+
+/* ---- menu Soporte desplegable (t93, pedido de Axel: hover, click y tap) ---- */
+.menu-soporte{position:relative}
+.menu-btn{
+  display:inline-flex; align-items:center; gap:.3rem; background:none; border:0; padding:.65rem .2rem;
+  font:inherit; font-size:.92rem; font-weight:600; color:var(--soft); cursor:pointer; white-space:nowrap;
+}
+.menu-btn:hover{color:var(--ink)}
+.menu-btn .caret{width:.85em; height:.85em; transition:transform .18s var(--ease-out)}
+.menu-lista{
+  position:absolute; top:calc(100% + 6px); right:0; min-width:230px; z-index:70;
+  background:var(--surface); border:1px solid var(--line); border-radius:14px;
+  box-shadow:var(--sombra); padding:.4rem;
+  opacity:0; transform:translateY(-6px); pointer-events:none;
+  transition:opacity .18s var(--ease-out), transform .18s var(--ease-out);
+}
+.menu-lista a{display:block; padding:.68rem .85rem; border-radius:9px; color:var(--ink); font-size:.9rem; font-weight:600; text-decoration:none}
+.menu-lista a:hover{background:var(--surface-2)}
+.menu-soporte.abierto .menu-lista{opacity:1; transform:none; pointer-events:auto}
+.menu-soporte.abierto .menu-btn .caret{transform:rotate(180deg)}
+@media (hover:hover) and (pointer:fine){
+  .menu-soporte:hover .menu-lista,.menu-soporte:focus-within .menu-lista{opacity:1; transform:none; pointer-events:auto}
+  .menu-soporte:hover .caret,.menu-soporte:focus-within .caret{transform:rotate(180deg)}
+}
+header.site.sobre-hero .menu-btn{color:#c7d0dc}
+header.site.sobre-hero .menu-btn:hover{color:#fff}
 .solo-desktop{display:none}
 @media (min-width:760px){ .solo-desktop{display:inline} }
 .cta-header{
   background:var(--verde); color:#fff !important; font-weight:800; font-size:.9rem;
   padding:.68rem 1.05rem; border-radius:999px; text-decoration:none;
+  white-space:nowrap; flex-shrink:0;
   box-shadow:0 3px 0 -1px var(--verde-hondo);
   transition:transform .18s var(--ease-out);
 }
+@media (max-width:759px){ .cta-header{padding:.66rem .85rem; font-size:.86rem} }
 .cta-header:hover{transform:translateY(-1px)}
 .tema-btn{
   width:38px; height:38px; border-radius:50%; border:1px solid var(--line);
   background:var(--surface); color:var(--ink); cursor:pointer; display:grid; place-items:center;
-  font-size:1rem; padding:0; position:relative; transition:transform .18s var(--ease-out);
+  font-size:1rem; padding:0; position:relative; flex-shrink:0; transition:transform .18s var(--ease-out);
 }
 /* extensor invisible: area tactil 44+ sin crecer el visual (patron t59 de la app) */
 .tema-btn::after{content:''; position:absolute; inset:-4px}
@@ -220,24 +249,25 @@ nav.site a:hover{color:var(--ink)}
 }
 .btn-hero:hover{transform:translateY(-2px) scale(1.02)}
 .btn-hero:active{transform:translateY(1px)}
-.hero .anydev{color:#9fb0c0; font-size:.95rem; max-width:540px; margin:0}
-.hero .anydev b{color:#d6dee8}
+/* t92 (Axel): estos textos al MISMO blanco del titulo para contrastar con la galaxia */
+.hero .anydev{color:#f1f7fb; font-size:.95rem; max-width:540px; margin:0}
+.hero .anydev b{color:#ffffff}
 .jump{display:inline; background:none; border:0; padding:0; font:inherit; color:#8fd8b4; font-weight:700; cursor:pointer; white-space:nowrap; position:relative}
 .jump::after{content:''; position:absolute; left:0; right:0; top:-10px; bottom:-10px}
 .jump:hover{text-decoration:underline}
 .stores{display:flex; flex-wrap:wrap; justify-content:center; gap:.5rem; margin-top:.4rem}
 .stores span,.stores a.store{
-  display:inline-block; border:1px solid rgba(255,255,255,0.16); background:rgba(255,255,255,0.06);
-  color:#b7c2ce; border-radius:10px; padding:.5rem .9rem; font-size:.84rem; font-weight:700; text-decoration:none;
+  display:inline-block; border:1px solid rgba(255,255,255,0.32); background:rgba(255,255,255,0.10);
+  color:#f1f7fb; border-radius:10px; padding:.5rem .9rem; font-size:.84rem; font-weight:700; text-decoration:none;
 }
-.stores a.store.live{border-color:rgba(79,199,138,.6); background:rgba(79,199,138,.14); color:#8fe6b8}
+.stores a.store.live{border-color:rgba(79,199,138,.75); background:rgba(79,199,138,.18); color:#f1f7fb}
 .arr{width:1em; height:1em; vertical-align:-.14em; margin-left:.4em}
 .hero-cue{
   position:absolute; bottom:1.1rem; left:50%; z-index:2; transform:translateX(-50%);
-  color:#7e8794; font-size:.72rem; letter-spacing:.22em; text-transform:uppercase;
+  color:#f1f7fb; font-size:.72rem; letter-spacing:.22em; text-transform:uppercase;
   animation:cuePulsa 1.9s ease-in-out infinite;
 }
-@keyframes cuePulsa{0%,100%{opacity:.35; transform:translateX(-50%) translateY(0)} 50%{opacity:.8; transform:translateX(-50%) translateY(4px)}}
+@keyframes cuePulsa{0%,100%{opacity:.55; transform:translateX(-50%) translateY(0)} 50%{opacity:1; transform:translateX(-50%) translateY(4px)}}
 
 /* ---------- banda de cifras verificadas ---------- */
 .cifras{position:relative; background:var(--navy-0); color:#eef2f7; padding:2.6rem 0 2.9rem; overflow:hidden}
@@ -246,7 +276,8 @@ nav.site a:hover{color:var(--ink)}
 .cifras .wrap{position:relative; display:grid; grid-template-columns:repeat(2,1fr); gap:1.6rem 1rem; text-align:center}
 @media (min-width:760px){ .cifras .wrap{grid-template-columns:repeat(4,1fr)} }
 .cifra b{display:block; font-family:var(--fuente-display); font-weight:900; font-size:clamp(1.9rem,4.4vw,2.7rem); letter-spacing:-.01em; color:var(--oro); font-variant-numeric:tabular-nums}
-.cifra span{display:block; color:#9aa7b5; font-size:.86rem; font-weight:600; margin-top:.15rem}
+.cifra span{display:block; color:#b9c4d0; font-size:.86rem; font-weight:600; margin-top:.15rem}
+.cifra-total b{color:#7fe0b0}
 .cifras .nota{grid-column:1/-1; color:#7e8794; font-size:.78rem; margin:.4rem 0 0}
 .cifras .nota a{color:#9fb3c8}
 
@@ -278,6 +309,8 @@ main{background:var(--bg)}
   box-shadow:0 24px 60px rgba(0,0,0,.35), 0 0 0 1px rgba(255,255,255,0.04);
   background:#10151d; display:block; will-change:transform;
 }
+/* tablet vertical (1 columna): el shot luce mas grande */
+@media (min-width:700px) and (max-width:899px){ .telefono{width:min(42vw,330px)} }
 .media .halo{position:absolute; width:min(70vw,340px); aspect-ratio:1; border-radius:50%; z-index:-1; filter:blur(30px); opacity:.5}
 .halo-verde{background:radial-gradient(circle, rgba(79,199,138,.4), transparent 65%)}
 .halo-violeta{background:radial-gradient(circle, rgba(106,111,224,.42), transparent 65%)}
@@ -361,6 +394,7 @@ th{background:var(--surface-2); color:var(--ink)}
   .hero-particulas i,.btn-hero,.cta-header,.tema-btn,header.site,.hero-nebulosa{animation:none !important; transition:none !important}
   .hero-particulas{display:none}
   .hero-cursor-glow{display:none}
+  .menu-lista,.menu-btn .caret{transition:none}
   .hero-nebulosa.cargada{opacity:.9}
   .hero-aki-wrap,.hero-nebulosa{transform:none !important}
   .hero h1,.hero .tag,.hero-acciones{opacity:1; transform:none}
