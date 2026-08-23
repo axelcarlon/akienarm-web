@@ -47,6 +47,14 @@
 
 /* ---------- base ---------- */
 *{box-sizing:border-box}
+/* teclado: anillo de foco de la marca (solo :focus-visible, no al click) */
+:focus-visible{outline:3px solid var(--verde); outline-offset:3px; border-radius:6px}
+.hero :focus-visible,.cierre :focus-visible{outline-color:#8fe6b8}
+.skip-link{
+  position:absolute; left:-9999px; top:0; z-index:100; background:var(--verde); color:#fff;
+  font-weight:800; padding:.7rem 1.2rem; border-radius:0 0 12px 0; text-decoration:none;
+}
+.skip-link:focus{left:0}
 html{scroll-behavior:smooth; overscroll-behavior-y:none}
 @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} }
 body{
