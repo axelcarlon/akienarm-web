@@ -99,14 +99,22 @@ nav.site{margin-left:auto; display:flex; align-items:center; gap:1.1rem}
 nav.site a{color:var(--soft); text-decoration:none; font-size:.92rem; font-weight:600}
 nav.site a:hover{color:var(--ink)}
 
-/* ---- menu Soporte desplegable (t93, pedido de Axel: hover, click y tap) ---- */
+/* ---- menu desplegable (t93; t97: boton de 3 lineas en TODOS los tamaños) ---- */
 .menu-soporte{position:relative}
 .menu-btn{
-  display:inline-flex; align-items:center; gap:.3rem; background:none; border:0; padding:.65rem .2rem;
-  font:inherit; font-size:.92rem; font-weight:600; color:var(--soft); cursor:pointer; white-space:nowrap;
+  width:38px; height:38px; border-radius:50%; border:1px solid var(--line);
+  background:var(--surface); color:var(--ink); cursor:pointer;
+  display:grid; place-items:center; padding:0; position:relative; flex-shrink:0;
 }
-.menu-btn:hover{color:var(--ink)}
-.menu-btn .caret{width:.85em; height:.85em; transition:transform .18s var(--ease-out)}
+.menu-btn::after{content:''; position:absolute; inset:-4px}
+.menu-btn:hover{color:var(--verde)}
+/* las 3 lineas; con el menu abierto se cruzan en X (solo transform/opacity) */
+.ham{display:flex; flex-direction:column; justify-content:space-between; width:16px; height:12px}
+.ham i{display:block; height:2px; border-radius:2px; background:currentColor;
+  transition:transform .22s var(--ease-out), opacity .18s ease; will-change:transform}
+.menu-soporte.abierto .ham i:nth-child(1){transform:translateY(5px) rotate(45deg)}
+.menu-soporte.abierto .ham i:nth-child(2){opacity:0}
+.menu-soporte.abierto .ham i:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
 .menu-lista{
   position:absolute; top:calc(100% + 6px); right:0; min-width:230px; z-index:70;
   background:var(--surface); border:1px solid var(--line); border-radius:14px;
@@ -116,14 +124,17 @@ nav.site a:hover{color:var(--ink)}
 }
 .menu-lista a{display:block; padding:.68rem .85rem; border-radius:9px; color:var(--ink); font-size:.9rem; font-weight:600; text-decoration:none}
 .menu-lista a:hover{background:var(--surface-2)}
+/* pantallas angostas: la lista ancla al HEADER (fixed), no al boton — siempre dentro */
+@media (max-width:480px){
+  .menu-soporte{position:static}
+  .menu-lista{top:calc(100% + 2px); right:10px}
+}
 .menu-soporte.abierto .menu-lista{opacity:1; transform:none; pointer-events:auto}
-.menu-soporte.abierto .menu-btn .caret{transform:rotate(180deg)}
 @media (hover:hover) and (pointer:fine){
   .menu-soporte:hover .menu-lista,.menu-soporte:focus-within .menu-lista{opacity:1; transform:none; pointer-events:auto}
-  .menu-soporte:hover .caret,.menu-soporte:focus-within .caret{transform:rotate(180deg)}
 }
-header.site.sobre-hero .menu-btn{color:#c7d0dc}
-header.site.sobre-hero .menu-btn:hover{color:#fff}
+header.site.sobre-hero .menu-btn{background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.18); color:#f1f7fb}
+header.site.sobre-hero .menu-btn:hover{color:#8fe6b8}
 .solo-desktop{display:none}
 @media (min-width:760px){ .solo-desktop{display:inline} }
 .cta-header{
@@ -323,11 +334,19 @@ main{background:var(--bg)}
 .chips{display:flex; flex-wrap:wrap; gap:.45rem; margin-top:.9rem}
 .chips span{background:var(--surface); border:1px solid var(--line); color:var(--soft); border-radius:999px; padding:.32rem .7rem; font-size:.8rem; font-weight:700}
 
-/* video del cofre (lazy) */
+/* video del cofre (lazy). t97: el POSTER vive en una capa encima y solo se
+   desvanece cuando el video YA reproduce — cero pantalla negra en celular. */
+.video-marco{position:relative; width:100%; max-width:520px}
 .video-cofre{
-  width:100%; max-width:520px; border-radius:var(--radio); display:block;
+  width:100%; border-radius:var(--radio); display:block;
   box-shadow:var(--sombra); background:var(--navy-0);
 }
+.video-poster{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  border-radius:var(--radio); pointer-events:none; opacity:1;
+  transition:opacity .5s ease; will-change:opacity;
+}
+.video-marco.reproduciendo .video-poster{opacity:0}
 
 /* ---------- reveal por scroll (compositor-safe) ---------- */
 .reveal{opacity:0; transform:translateY(26px); will-change:transform,opacity;
@@ -394,7 +413,7 @@ th{background:var(--surface-2); color:var(--ink)}
   .hero-particulas i,.btn-hero,.cta-header,.tema-btn,header.site,.hero-nebulosa{animation:none !important; transition:none !important}
   .hero-particulas{display:none}
   .hero-cursor-glow{display:none}
-  .menu-lista,.menu-btn .caret{transition:none}
+  .menu-lista,.ham i,.video-poster{transition:none}
   .hero-nebulosa.cargada{opacity:.9}
   .hero-aki-wrap,.hero-nebulosa{transform:none !important}
   .hero h1,.hero .tag,.hero-acciones{opacity:1; transform:none}

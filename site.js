@@ -133,8 +133,9 @@
     });
   }
 
-  /* ---------- video del cofre: carga y reproduce solo al verse ---------- */
+  /* ---------- video del cofre: precarga TEMPRANA y el poster tapa hasta que reproduce ---------- */
   var video = document.getElementById('videoCofre');
+  var videoMarco = document.getElementById('videoMarco');
   if (video) {
     var fuente = video.querySelector('source[data-src]');
     var cargado = false;
@@ -143,16 +144,28 @@
       cargado = true;
       fuente.src = fuente.getAttribute('data-src');
       video.load();
-      if (!reduceMotion) { video.play().catch(function () {}); }
     }
+    /* el poster de la capa solo se va cuando el video DE VERDAD esta corriendo */
+    video.addEventListener('playing', function () {
+      if (videoMarco) videoMarco.classList.add('reproduciendo');
+    });
     if ('IntersectionObserver' in window) {
+      /* precarga: 600px antes de entrar (baja mientras el usuario lee la seccion previa) */
+      var obsPre = new IntersectionObserver(function (entradas) {
+        entradas.forEach(function (en) {
+          if (en.isIntersecting) { cargaVideo(); obsPre.unobserve(video); }
+        });
+      }, { rootMargin: '600px 0px' });
+      obsPre.observe(video);
+      /* reproduccion: al estar visible de verdad; pausa al salir */
       var obsV = new IntersectionObserver(function (entradas) {
         entradas.forEach(function (en) {
-          if (en.isIntersecting) { cargaVideo(); }
-          else if (cargado && !video.paused) { video.pause(); }
-          if (cargado && en.isIntersecting && video.paused && !reduceMotion) { video.play().catch(function () {}); }
+          if (en.isIntersecting) {
+            cargaVideo();
+            if (!reduceMotion) { video.play().catch(function () {}); }
+          } else if (!video.paused) { video.pause(); }
         });
-      }, { rootMargin: '120px 0px', threshold: 0.25 });
+      }, { rootMargin: '80px 0px', threshold: 0.25 });
       obsV.observe(video);
     }
     /* con Reduce Motion el poster se queda quieto; un tap lo reproduce a mano */

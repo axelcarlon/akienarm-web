@@ -50,7 +50,7 @@
     <a class="solo-desktop" href="#camino">Qué incluye</a>
     <a class="solo-desktop" href="#instalar">Instalar</a>
     <div class="menu-soporte" id="menuSoporte">
-      <button class="menu-btn" id="menuSoporteBtn" type="button" aria-haspopup="true" aria-expanded="false">Soporte<svg class="caret" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="menu-btn" id="menuSoporteBtn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Menú: soporte y legal"><span class="ham" aria-hidden="true"><i></i><i></i><i></i></span></button>
       <div class="menu-lista" role="menu" aria-label="Soporte y legal">
         <a role="menuitem" href="/soporte">Soporte</a>
         <a role="menuitem" href="/privacidad">Aviso de Privacidad</a>
@@ -190,9 +190,12 @@
   <section class="feature" id="constancia">
     <div class="wrap">
       <div class="media reveal">
-        <video class="video-cofre" id="videoCofre" muted loop playsinline preload="none" poster="/assets/cofre-poster.webp" width="960" height="540" aria-label="Cofre de recompensas de AKI ENARM">
-          <source data-src="/assets/video-cofre.mp4" type="video/mp4">
-        </video>
+        <div class="video-marco" id="videoMarco">
+          <video class="video-cofre" id="videoCofre" muted loop playsinline preload="none" poster="/assets/cofre-poster.webp" width="960" height="540" aria-label="Cofre de recompensas de AKI ENARM">
+            <source data-src="/assets/video-cofre.mp4" type="video/mp4">
+          </video>
+          <img class="video-poster" src="/assets/cofre-poster.webp" alt="" aria-hidden="true" width="960" height="540" loading="lazy" decoding="async">
+        </div>
       </div>
       <div class="texto">
         <span class="eyebrow reveal" style="--i:0"><img src="/assets/aki-racha.webp" alt="" width="26" height="26" loading="lazy">Constancia</span>
