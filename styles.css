@@ -407,6 +407,69 @@ table{width:100%; border-collapse:collapse; margin:.7rem 0; font-size:.92rem}
 th,td{border:1px solid var(--line); padding:.5rem .6rem; text-align:left; vertical-align:top; color:var(--soft)}
 th{background:var(--surface-2); color:var(--ink)}
 
+/* ---------- comparativa: AKI vs curso tradicional (t110) ---------- */
+.visually-hidden{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0}
+.comparativa{background:var(--surface-2); padding:clamp(3.2rem,8vw,5.6rem) 0; scroll-margin-top:80px}
+.comparativa .eyebrow{
+  display:inline-flex; align-items:center; gap:.5rem;
+  font-size:.8rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--verde);
+}
+.comparativa .eyebrow img{width:26px; height:26px}
+.comparativa h2{font-size:clamp(1.7rem,4vw,2.5rem); font-weight:900; letter-spacing:-.01em; margin:.5rem 0 .9rem}
+.comparativa .intro{color:var(--soft); font-size:1.02rem; max-width:640px; margin:.5rem 0 1.6rem}
+/* la tabla scrollea DENTRO de su marco en angosto; la pagina nunca scrollea horizontal */
+.tabla-scroll{overflow-x:auto; -webkit-overflow-scrolling:touch; border-radius:var(--radio); box-shadow:var(--sombra)}
+.tabla-comparativa{
+  width:100%; min-width:660px; margin:0; border-collapse:separate; border-spacing:0;
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--radio); overflow:hidden;
+  font-size:.92rem;
+}
+.tabla-comparativa th,.tabla-comparativa td{border:0; border-bottom:1px solid var(--line); padding:.8rem .95rem; text-align:left; vertical-align:top; color:var(--soft)}
+.tabla-comparativa tr:last-child th,.tabla-comparativa tr:last-child td{border-bottom:0}
+.tabla-comparativa thead th{background:var(--surface-2); color:var(--ink); font-family:var(--fuente-display); font-weight:900; font-size:.95rem}
+.tabla-comparativa thead th.col-aki{color:var(--verde-hondo)}
+[data-tema="dark"] .tabla-comparativa thead th.col-aki{color:var(--verde)}
+@media (prefers-color-scheme:dark){ :root:not([data-tema="light"]) .tabla-comparativa thead th.col-aki{color:var(--verde)} }
+.tabla-comparativa tbody th{color:var(--ink); font-weight:800; white-space:nowrap}
+.tabla-comparativa td.col-aki{background:var(--chip-ok-bg); color:var(--ink)}
+.tabla-comparativa td.col-aki b{color:var(--chip-ok-ink)}
+.nota-comparativa{color:var(--soft); font-size:.92rem; max-width:640px; margin:1.4rem 0 0}
+
+/* ---------- planes y precios (t110; espejo de la pantalla de Suscripcion) ---------- */
+.planes{background:var(--bg); padding:clamp(3.2rem,8vw,5.6rem) 0; scroll-margin-top:80px}
+.planes h2{font-size:clamp(1.7rem,4vw,2.5rem); font-weight:900; letter-spacing:-.01em; text-align:center}
+.planes .intro{color:var(--soft); font-size:1.02rem; max-width:560px; margin:.6rem auto 0; text-align:center}
+.planes-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:1.2rem; max-width:880px; margin:2.2rem auto 0}
+.plan{
+  position:relative; display:flex; flex-direction:column;
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--radio);
+  padding:1.6rem 1.4rem 1.4rem; box-shadow:var(--sombra);
+}
+.plan.premium{border:2px solid var(--verde)}
+.plan-badge{
+  position:absolute; top:-13px; left:50%; transform:translateX(-50%);
+  background:var(--oro); color:#3a2c00; font-size:.66rem; font-weight:800;
+  letter-spacing:.06em; text-transform:uppercase; padding:.3rem .75rem;
+  border-radius:999px; white-space:nowrap;
+}
+.plan h3{font-size:1.15rem; font-weight:900; color:var(--violeta); margin:0}
+.plan.premium h3{color:var(--verde-hondo)}
+[data-tema="dark"] .plan.premium h3{color:var(--verde)}
+@media (prefers-color-scheme:dark){ :root:not([data-tema="light"]) .plan.premium h3{color:var(--verde)} }
+.plan-precio{margin:.3rem 0 .6rem; color:var(--soft)}
+.plan-precio b{font-family:var(--fuente-display); font-weight:900; font-size:2rem; color:var(--ink); letter-spacing:-.01em; font-variant-numeric:tabular-nums}
+.plan-precio span{font-size:.9rem; font-weight:700}
+.plan-precio em{font-style:normal; color:var(--soft); font-size:.9rem; margin:0 .15rem}
+.plan-sub{color:var(--soft); font-size:.86rem; font-weight:800; margin:.1rem 0 .2rem; text-transform:uppercase; letter-spacing:.05em}
+.plan ul{list-style:none; margin:.4rem 0 1.2rem; padding:0}
+.plan li{position:relative; padding-left:1.5rem; margin:.5rem 0; color:var(--soft); font-size:.94rem}
+.plan li::before{content:'✓'; position:absolute; left:0; top:0; color:var(--verde); font-weight:900}
+.plan li strong{color:var(--ink)}
+.plan .btn,.plan .btn.alt{margin-top:auto; text-align:center}
+.planes-notas{max-width:640px; margin:1.8rem auto 0; text-align:center}
+.planes-notas p{color:var(--soft); font-size:.9rem; margin:.5rem 0}
+.planes-notas strong{color:var(--ink)}
+
 /* ---------- reduce motion: TODO quieto ---------- */
 @media (prefers-reduced-motion:reduce){
   .hero-aurora,.hero-glow,.hero-aki,.hero-cue,.hero h1,.hero .tag,.hero-acciones,
