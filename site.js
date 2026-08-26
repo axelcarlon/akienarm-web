@@ -193,6 +193,11 @@
     document.addEventListener('keydown', function (ev) {
       if (ev.key === 'Escape' && menu.classList.contains('abierto')) { ponMenu(false); menuBtn.focus(); }
     });
+    /* t130: tocar cualquier opcion CIERRA el menu. Sin esto, en el index un ancla (/#planes) scrollea
+       sin recargar y el menu quedaba abierto tapando el contenido. */
+    menu.querySelectorAll('.menu-lista a').forEach(function (a) {
+      a.addEventListener('click', function () { ponMenu(false); });
+    });
   }
 
   /* ---------- scroll suave del boton "Como instalarla" ---------- */

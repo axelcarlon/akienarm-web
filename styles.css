@@ -123,6 +123,15 @@ nav.site a:hover{color:var(--ink)}
   transition:opacity .18s var(--ease-out), transform .18s var(--ease-out);
 }
 .menu-lista a{display:block; padding:.68rem .85rem; border-radius:9px; color:var(--ink); font-size:.9rem; font-weight:600; text-decoration:none}
+/* t130 (reporte de Axel): el menú es el mapa COMPLETO del sitio (en móvil no hay nav de barra);
+   el separador divide navegación de soporte/legal */
+.menu-sep{height:1px; background:var(--line); margin:.35rem .4rem}
+/* t130-bis: con el header en modo sobre-hero (index, scroll<40) la regla de arriba pintaba TODOS los
+   <a> del nav en claro #c7d0dc — también los del PANEL BLANCO del menú (ilegible). El panel tiene su
+   propio fondo (--surface), así que sus links conservan la tinta del tema. Misma especificidad que la
+   regla del hero: gana por venir después. */
+header.site.sobre-hero nav.site .menu-lista a:not(.cta-header){color:var(--ink)}
+header.site.sobre-hero nav.site .menu-lista a:not(.cta-header):hover{color:var(--ink); background:var(--surface-2)}
 .menu-lista a:hover{background:var(--surface-2)}
 /* pantallas angostas: la lista ancla al HEADER (fixed), no al boton — siempre dentro */
 @media (max-width:480px){
