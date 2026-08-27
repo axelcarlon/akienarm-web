@@ -53,15 +53,13 @@
 <header class="site"><div class="wrap">
   <a class="brand" href="/"><img src="/assets/favicon-48.png" alt="" width="30" height="30">AKI <b>ENARM</b></a>
   <nav class="site">
-    <a class="solo-desktop" href="#camino">Qué incluye</a>
-    <a class="solo-desktop" href="/como-funciona">Cómo funciona</a>
+    <a class="solo-desktop" href="#fichas">Cómo funciona</a>
     <a class="solo-desktop" href="#planes">Precios</a>
     <a class="solo-desktop" href="#instalar">Instalar</a>
     <div class="menu-soporte" id="menuSoporte">
       <button class="menu-btn" id="menuSoporteBtn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Menú del sitio"><span class="ham" aria-hidden="true"><i></i><i></i><i></i></span></button>
       <div class="menu-lista" role="menu" aria-label="Menú del sitio">
-        <a role="menuitem" href="/#camino">Qué incluye</a>
-        <a role="menuitem" href="/como-funciona">Cómo funciona</a>
+        <a role="menuitem" href="/#fichas">Cómo funciona</a>
         <a role="menuitem" href="/#planes">Precios</a>
         <a role="menuitem" href="/#instalar">Instalar</a>
         <div class="menu-sep" role="separator" aria-hidden="true"></div>
@@ -129,73 +127,149 @@
     </div>
   </section>
 
-  <!-- ============ FEATURE: CAMINO ============ -->
-  <section class="feature" id="camino">
+  <!-- ============ CÓMO FUNCIONA (t138: fusión de /como-funciona al home; pantallas reales) ============ -->
+  <section class="cf-seccion" id="fichas">
+    <span id="verificado" aria-hidden="true"></span>
     <div class="wrap">
-      <div class="media reveal">
-        <div class="halo halo-verde"></div>
-        <img class="telefono tilt" src="/assets/shot-camino.webp" alt="Camino de estudio de AKI ENARM" loading="lazy" width="660" height="1428">
+      <div class="cf-kicker reveal">
+        <span class="num" aria-hidden="true">1</span>
+        <h2>Las fichas: 417 temas con su fuente a la vista</h2>
+        <p>Todo lo que ves en estas secciones son <strong>pantallas reales de la app</strong>. Todo en AKI nace de una <strong>ficha de estudio</strong>: una por cada tema real del examen, organizadas por especialidad, con los puntos clave, sus perlas clínicas, tablas, su banco de reactivos y, cuando la guía lo trae, el flujograma de decisión (727 en total).</p>
       </div>
-      <div class="texto">
-        <span class="eyebrow reveal" style="--i:0"><img src="/assets/libro-3d.webp" alt="" width="26" height="26" loading="lazy">Camino de estudio</span>
-        <h2 class="reveal" style="--i:1">Tu camino al ENARM</h2>
-        <p class="reveal" style="--i:2"><strong>Camino de estudio gamificado</strong> por especialidad, isla por isla. Avanza a través de <strong>417 temas</strong> organizados por especialidad: cada sección es un tema real del ENARM, con flashcards, algoritmos, duelos, casos y un reto final.</p>
-        <p class="reveal" style="--i:3">Racha diaria, ligas semanales, cofres, gemas y celebraciones que hacen que estudiar todos los días se sienta como avanzar de verdad.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ FEATURE: VERIFICADO ============ -->
-  <section class="feature invertida" id="verificado">
-    <div class="wrap">
-      <div class="media reveal">
-        <div class="halo halo-violeta"></div>
-        <div class="media-doble">
-          <img class="pose" src="/assets/sello-escudo.webp" alt="Sello de contenido verificado" loading="lazy" width="320" height="320">
-          <img class="telefono tilt" src="/assets/shot-ficha.webp" alt="Ficha de estudio basada en GPC" loading="lazy" width="660" height="1428">
+      <div class="cf-dual">
+        <div class="cf-texto">
+          <h3>El proceso de verificación, tal como lo ves en la app</h3>
+          <ol class="cf-pasos">
+            <li class="reveal"><span class="n" aria-hidden="true">1</span>
+              <h4>Regla de elaboración</h4>
+              <p>Cada dato clínico se redacta contra el <strong>texto de Guías de Práctica Clínica públicas</strong> (IMSS, ISSSTE, Secretaría de Salud, CENETEC), Normas Oficiales Mexicanas y guías internacionales. Si un dato <strong>no está respaldado por la fuente, no entra a la app</strong>.</p>
+            </li>
+            <li class="reveal" style="--i:1"><span class="n" aria-hidden="true">2</span>
+              <h4>El sello Verificado</h4>
+              <p>Las fichas y las explicaciones de los ejercicios llevan un <strong>sello Verificado</strong>. Al tocarlo, la app te muestra de qué guía sale ese contenido.</p>
+            </li>
+            <li class="reveal" style="--i:2"><span class="n" aria-hidden="true">3</span>
+              <h4>La fuente, con nombre y apellido</h4>
+              <p>Cuando la guía tiene identificador de catálogo, el sello lo muestra en una píldora (en la pantalla de al lado: <strong>GPC-SS-014</strong>); las internacionales aparecen con su identificador propio y las oficiales sin catálogo se marcan como <strong>Fuente oficial</strong>.</p>
+            </li>
+            <li class="reveal" style="--i:3"><span class="n" aria-hidden="true">4</span>
+              <h4>Elaboración propia</h4>
+              <p>Todos los reactivos y casos son de <strong>elaboración propia</strong>, tipo ENARM. AKI <strong>no reproduce reactivos oficiales</strong> del examen.</p>
+            </li>
+          </ol>
+          <div class="chips reveal" style="--i:4">
+            <span>GPC · IMSS</span><span>ISSSTE</span><span>Secretaría de Salud</span><span>CENETEC</span><span>NOM</span><span>GINA</span><span>GOLD</span><span>KDIGO</span><span>ESC</span><span>AHA</span><span>NICE</span>
+          </div>
+          <p class="reveal" style="--i:5">Además, cada tema te dice <strong>qué tan preguntado es</strong> en el examen con una etiqueta de frecuencia (de «Altamente preguntado» a «No preguntado»), para que inviertas tu tiempo donde más rinde.</p>
+        </div>
+        <div class="media reveal" style="--i:2">
+          <div class="halo halo-violeta"></div>
+          <img class="telefono tilt" src="/assets/cf-ficha.webp" alt="Pantalla real de una ficha de AKI: Fibrilación auricular con la píldora de su guía GPC-SS-014" loading="lazy" width="780" height="1688">
         </div>
       </div>
-      <div class="texto">
-        <span class="eyebrow reveal" style="--i:0"><img src="/assets/sello-escudo.webp" alt="" width="26" height="26" loading="lazy">Contenido original</span>
-        <h2 class="reveal" style="--i:1">Cada respuesta, verificada</h2>
-        <p class="reveal" style="--i:2">Más de 7,900 ejercicios (reactivos, casos clínicos seriados paso a paso y casos en inglés) nacidos del texto de su guía oficial. Toca el sello <strong>Verificado</strong> de cualquier explicación y comprueba tú mismo de qué guía sale.</p>
-        <p class="reveal" style="--i:3">Todos los reactivos y casos son <strong>de elaboración propia (tipo ENARM)</strong> y se apoyan, como referencia, en Guías de Práctica Clínica públicas. AKI ENARM no reproduce reactivos oficiales del examen.</p>
-        <div class="chips reveal" style="--i:4">
-          <span>GPC · IMSS</span><span>ISSSTE</span><span>Secretaría de Salud</span><span>CENETEC</span><span>NOM</span><span>GINA</span><span>GOLD</span><span>KDIGO</span><span>ESC</span><span>AHA</span><span>NICE</span>
+    </div>
+  </section>
+
+  <!-- ============ 2 · EL CAMINO ============ -->
+  <section class="cf-seccion alt" id="camino">
+    <div class="wrap">
+      <div class="cf-kicker reveal">
+        <span class="num" aria-hidden="true">2</span>
+        <h2>El camino de lecciones</h2>
+        <p>El camino convierte los 417 temas en un <strong>mapa de islas por especialidad</strong>: cada tema es una sección de <strong>8 islas</strong>, así que el camino completo suma <strong>3,336 islas</strong>. Al completar cada una ganas <strong>estrellas</strong> según tu desempeño, además de EXP y gemas.</p>
+      </div>
+      <div class="cf-dual invertida">
+        <div class="cf-texto">
+          <h3>Cada isla, una forma distinta de dominar el mismo tema</h3>
+          <p>Las islas de una sección mezclan flashcards, el algoritmo de la guía, duelos, casos y un <strong>cofre de recompensas</strong> a mitad del camino. El avance va por <strong>etapas</strong> y, cuando terminas una sección al 100%, puedes darle una <strong>nueva vuelta</strong> para repasarla sin perder tu progreso.</p>
+          <div class="cf-islas" aria-label="Las islas de una sección del camino">
+            <div class="cf-isla reveal"><span class="nodo"><img src="/assets/icon-flashcards.webp" alt="" width="34" height="34" loading="lazy"></span><small>Flashcards</small></div>
+            <span class="cf-flecha" aria-hidden="true">›</span>
+            <div class="cf-isla reveal" style="--i:1"><span class="nodo"><svg viewBox="0 0 24 24" fill="none" stroke="#6A6FE0" stroke-width="2" aria-hidden="true"><circle cx="12" cy="4" r="2.4"/><circle cx="6" cy="19" r="2.4"/><circle cx="18" cy="19" r="2.4"/><path d="M12 6.5V12M12 12l-5 4.6M12 12l5 4.6"/></svg></span><small>Algoritmo</small></div>
+            <span class="cf-flecha" aria-hidden="true">›</span>
+            <div class="cf-isla reveal" style="--i:2"><span class="nodo"><img src="/assets/icon-duelo.webp" alt="" width="34" height="34" loading="lazy"></span><small>Duelo</small></div>
+            <span class="cf-flecha" aria-hidden="true">›</span>
+            <div class="cf-isla reveal" style="--i:3"><span class="nodo"><img src="/assets/cofre-cerrado.webp" alt="" width="34" height="34" loading="lazy"></span><small>Cofre</small></div>
+            <span class="cf-flecha" aria-hidden="true">›</span>
+            <div class="cf-isla reveal" style="--i:4"><span class="nodo"><img src="/assets/libro-3d.webp" alt="" width="34" height="34" loading="lazy"></span><small>Casos</small></div>
+            <span class="cf-flecha" aria-hidden="true">›</span>
+            <div class="cf-isla jefe reveal" style="--i:5"><span class="nodo"><img src="/assets/cf-boss.webp" alt="" width="34" height="34" loading="lazy"></span><small>Reto</small></div>
+          </div>
         </div>
-        <p class="reveal" style="--i:5"><a href="/como-funciona">Conoce cómo funciona la app por dentro</a>: las fichas, el proceso de verificación, el camino de lecciones y los simuladores.</p>
+        <div class="media reveal" style="--i:2">
+          <div class="halo halo-verde"></div>
+          <img class="telefono tilt" src="/assets/cf-camino.webp" alt="Pantalla real del camino de AKI: islas de la sección con el cofre, los atajos y el plan de hoy" loading="lazy" width="780" height="1688">
+        </div>
+      </div>
+
+      <div class="cf-boss reveal">
+        <div class="arte"><img src="/assets/cf-boss.webp" alt="AKI, el jefe del tema, con su corona" loading="lazy" width="512" height="512"></div>
+        <div>
+          <h3 style="font-family:var(--fuente-display); font-weight:900; margin:0 0 .3rem">El Reto final: la guarida del jefe</h3>
+          <p style="color:var(--soft); margin:.3rem 0 0; line-height:1.6">La última isla es una <strong style="color:var(--ink)">pelea de 3 rondas</strong> contra el jefe del tema. Él tiene su barra de vida; tú, tres corazones <span class="cf-corazones" aria-hidden="true">❤️❤️❤️</span>. Nada es de utilería: las preguntas salen del banco del tema y el algoritmo usa las <strong style="color:var(--ink)">decisiones reales del flujograma</strong> de la guía.</p>
+          <div class="cf-vida" role="img" aria-label="Barra de vida del jefe al 72 por ciento"></div>
+          <div class="cf-rondas">
+            <div class="ronda reveal"><b>Ronda 1</b><p>Ataques rápidos: reactivos del banco del tema.</p></div>
+            <div class="ronda reveal" style="--i:1"><b>Ronda 2</b><p>El algoritmo del jefe: la decisión correcta es el paso real de la guía.</p></div>
+            <div class="ronda reveal" style="--i:2"><b>Ronda 3</b><p>El golpe final: un caso clínico completo del tema.</p></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ FEATURE: DUELOS ============ -->
-  <section class="feature" id="duelos">
+  <!-- ============ 3 · ACTIVIDADES ============ -->
+  <section class="cf-seccion" id="actividades">
+    <span id="duelos" aria-hidden="true"></span>
     <div class="wrap">
-      <div class="media reveal">
-        <div class="halo halo-oro"></div>
-        <img class="telefono tilt" src="/assets/shot-duelo.webp" alt="Modo duelo de AKI ENARM" loading="lazy" width="660" height="1428">
+      <div class="cf-kicker reveal">
+        <span class="num" aria-hidden="true">3</span>
+        <h2>Las actividades</h2>
+        <p>AKI está hecha de <strong>práctica activa</strong>: en lugar de ver clases, respondes y decides todo el tiempo. Estas pantallas son la app real, tal cual se ve en tu teléfono.</p>
       </div>
-      <div class="texto">
-        <span class="eyebrow reveal" style="--i:0"><img src="/assets/icon-duelo.webp" alt="" width="26" height="26" loading="lazy">Duelos</span>
-        <h2 class="reveal" style="--i:1">Duelos médicos en tiempo real</h2>
-        <p class="reveal" style="--i:2">Reta a un amigo en línea, comparte pantalla en 1 vs 1 o mide tu velocidad contra la IA. La misma pregunta, dos cerebros: <strong>gana quien acierta más rápido</strong>.</p>
+      <div class="cf-carrusel" role="list" aria-label="Pantallas reales de las actividades">
+        <figure class="cf-slide reveal" role="listitem">
+          <img src="/assets/cf-flashcards.webp" alt="Pantalla real de las perlas: completa la perla con repetición espaciada" loading="lazy" width="780" height="1250">
+          <figcaption><b>Flashcards con SRS</b> · fármacos y perlas que vuelven justo antes de que las olvides</figcaption>
+        </figure>
+        <figure class="cf-slide reveal" style="--i:1" role="listitem">
+          <img src="/assets/cf-duelo.webp" alt="Pantalla real de un duelo contra la IA: el caso clínico arriba y las dos mitades de la pantalla" loading="lazy" width="780" height="1250">
+          <figcaption><b>Duelos</b> · 1 vs 1, en línea o contra la IA: gana quien acierta más rápido</figcaption>
+        </figure>
+        <figure class="cf-slide reveal" style="--i:2" role="listitem">
+          <img src="/assets/cf-flujograma.webp" alt="Pantalla real del flujograma de decisión de una guía dentro de la ficha" loading="lazy" width="780" height="1250">
+          <figcaption><b>Algoritmo</b> · recorres el flujograma real de la guía, decisión por decisión</figcaption>
+        </figure>
+        <figure class="cf-slide reveal" style="--i:3" role="listitem">
+          <img src="/assets/cf-isla.webp" alt="Pantalla real del camino con una isla abierta y su botón de empezar con XP" loading="lazy" width="780" height="1250">
+          <figcaption><b>El camino</b> · cada isla paga EXP y estrellas según tu desempeño</figcaption>
+        </figure>
+      </div>
+      <div class="cf-texto reveal" style="max-width:820px; margin:1.4rem auto 0">
+        <p style="text-align:center">Y alrededor de ellas: <strong>casos individuales</strong> (5,517 casos con feedback inmediato), <strong>casos seriados</strong> (2,055 casos con la secuencia completa del paciente en 6,133 pasos clínicos), <strong>417 casos en inglés</strong>, el <strong>Plan del día</strong> (15 casos diarios, gratis todos los días), la <strong>libreta de fallos</strong> que se llena sola y la <strong>biblioteca</strong> con las 417 fichas y su sello.</p>
       </div>
     </div>
   </section>
 
-  <!-- ============ FEATURE: SIMULADORES ============ -->
-  <section class="feature invertida" id="simuladores">
+  <!-- ============ 4 · SIMULADORES ============ -->
+  <section class="cf-seccion alt" id="simuladores">
     <div class="wrap">
-      <div class="media reveal">
-        <div class="halo halo-verde"></div>
-        <img class="telefono tilt" src="/assets/shot-simuladores.webp" alt="Simuladores tipo ENARM en AKI" loading="lazy" width="660" height="1428">
+      <div class="cf-kicker reveal">
+        <span class="num" aria-hidden="true">4</span>
+        <h2>Los simuladores</h2>
+        <p>Cuando quieres medirte, eliges cómo: a tu medida o con las reglas del examen.</p>
       </div>
-      <div class="texto">
-        <span class="eyebrow reveal" style="--i:0"><img src="/assets/icon-flashcards.webp" alt="" width="26" height="26" loading="lazy">Simuladores y repaso</span>
-        <h2 class="reveal" style="--i:1">Simuladores a tu medida</h2>
-        <p class="reveal" style="--i:2">Tú eliges la combinación: <strong>5,517 casos individuales</strong> por especialidad con feedback inmediato, <strong>2,055 casos seriados</strong> con la secuencia completa (diagnóstico, estudio, tratamiento: 6,133 pasos clínicos) y <strong>417 casos en inglés</strong>.</p>
-        <p class="reveal" style="--i:3">Y cuando quieras medirte de verdad, el <strong>Simulador Real</strong> estilo ENARM: <strong>280 reactivos</strong>, distribución oficial por especialidad, sección en inglés, y el tiempo y las reglas del examen.</p>
-        <p class="reveal" style="--i:4"><strong>Repaso que sí funciona</strong>: repetición espaciada (SRS) con flashcards de fármacos y perlas clínicas, libreta automática de fallos para repetir exactamente lo que se te escapa, y un plan diario que se adapta a tus debilidades reales.</p>
+      <div class="cf-dual">
+        <div class="cf-texto">
+          <h3>Del entrenamiento libre al examen completo</h3>
+          <p><strong>Simulacros a tu medida</strong>: tú eliges el temario y el tamaño, con el banco completo de casos individuales y seriados.</p>
+          <p><strong>El Simulador Real</strong>: <strong>280 reactivos</strong> con la <strong>distribución oficial por especialidad</strong>, sección en inglés y el tiempo y las reglas del ENARM. Al terminar, tu <strong>puntaje proyectado</strong> y el desglose por área y por dificultad, para saber exactamente dónde reforzar.</p>
+          <p>El camino completo, el Plan del día, los duelos, la biblioteca y los rankings son <strong>gratis</strong>. El Simulador Real, los casos sin límite, el duelo contra la IA con temario a elegir y el estudio sin conexión van con <strong>premium</strong>. Los precios y el detalle están en <a href="/#planes">Planes y precios</a>.</p>
+        </div>
+        <div class="media reveal" style="--i:1">
+          <div class="halo halo-oro"></div>
+          <img class="telefono tilt" src="/assets/cf-simuladores.webp" alt="Pantalla real del hub de simuladores: casos individuales, seriados, Simulador Real y libreta de fallos" loading="lazy" width="780" height="1688">
+        </div>
       </div>
     </div>
   </section>
