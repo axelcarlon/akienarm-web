@@ -24,6 +24,8 @@
 <meta name="twitter:image" content="https://www.akienarm.com/assets/og-image-v2.jpg">
 <link rel="icon" href="/assets/favicon-48.png" type="image/png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<!-- t220: Smart App Banner de Apple (Safari en iPhone/iPad muestra su franja nativa hacia la ficha 6807574834) -->
+<meta name="apple-itunes-app" content="app-id=6807574834">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@800;900&display=swap" media="print" onload="this.media='all'">
@@ -106,10 +108,13 @@
       <div class="hero-acciones">
         <a class="btn-hero" href="https://app.akienarm.com" target="_blank" rel="noopener">Abrir AKI<svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h14m-5-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <p class="anydev">Funciona en <b>cualquier dispositivo</b>: computadora, tablet o celular, directo en el navegador. <button class="jump" type="button" id="irInstalar">Cómo instalarla<svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v14m-6-5 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></p>
+        <!-- t220 (s21): 1.0.1 publicada en la App Store el 12-sep-2026. Badge OFICIAL de Apple (negro preferido, primero en la
+             fila, alto 50 px ≥ 40 px, aire de ¼ del alto), y a su lado los gemelos de la casa: la app web (disponible) y
+             Google Play (próximamente, sin logo de Google hasta que exista la ficha). -->
         <div class="stores">
-          <a class="store live" href="https://app.akienarm.com" target="_blank" rel="noopener">✓ Disponible ahora · App web</a>
-          <span>Próximamente en App Store</span>
-          <span>Próximamente en Google Play</span>
+          <a class="store-badge store-apple" href="https://apps.apple.com/mx/app/aki-enarm/id6807574834" target="_blank" rel="noopener" aria-label="Consíguelo en el App Store"><img src="/assets/app-store-badge-es-mx.svg" alt="Consíguelo en el App Store" width="150" height="50"></a>
+          <a class="store-badge store-web" href="https://app.akienarm.com" target="_blank" rel="noopener"><span class="sb-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M2.5 12h19M12 2.5c3 3.2 3 15.8 0 19M12 2.5c-3 3.2-3 15.8 0 19" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span><span class="sb-txt"><small>Disponible como</small><b>App web</b></span></a>
+          <span class="store-badge store-soon"><span class="sb-txt"><small>Próximamente en</small><b>Google Play</b></span></span>
         </div>
       </div>
     </div>
@@ -344,7 +349,7 @@
         <div class="plan premium reveal" style="--i:3">
           <span class="plan-badge">2 meses gratis con el plan anual</span>
           <h3>Premium</h3>
-          <p class="plan-precio tres"><b>$99</b><span> MXN / mes</span><em>, </em><b>$549</b><span> MXN / semestre</span><em> o </em><b>$999</b><span> MXN / año</span></p>
+          <p class="plan-precio tres"><b><span class="peso">$</span>99</b><span> MXN / mes</span><em>, </em><b><span class="peso">$</span>549</b><span> MXN / semestre</span><em> o </em><b><span class="peso">$</span>999</b><span> MXN / año</span></p>
           <p class="plan-sub">Todo lo del plan free, más:</p>
           <ul>
             <li><strong>Simulador Real ENARM</strong>: 280 casos, con el reloj del examen</li>
@@ -370,7 +375,7 @@
   <section class="instalar" id="instalar">
     <div class="wrap">
       <h2 class="reveal">Instálala en cualquier dispositivo</h2>
-      <p class="reveal" style="--i:1">La misma AKI en tu <b>computadora, tablet o celular</b>. Funciona directo en el navegador y, si quieres, la instalas como app, sin tienda.</p>
+      <p class="reveal" style="--i:1">La misma AKI en tu <b>computadora, tablet o celular</b>. En iPhone y iPad ya está en la <b>App Store</b>; en computadora y Android funciona directo en el navegador y, si quieres, la instalas como app.</p>
       <div class="pasos">
         <div class="paso reveal" style="--i:0">
           <h3>Computadora</h3>
@@ -392,11 +397,11 @@
         </div>
         <div class="paso reveal" style="--i:2">
           <h3>iPhone · iPad</h3>
-          <p class="os">Safari</p>
+          <p class="os">App Store</p>
           <ol>
-            <li>Abre <b>app.akienarm.com</b> en Safari.</li>
-            <li>Toca el botón <b>Compartir</b>.</li>
-            <li>Elige <b>Añadir a inicio</b>.</li>
+            <li>Descárgala en la <b>App Store</b>: <a class="enlace-tienda" href="https://apps.apple.com/mx/app/aki-enarm/id6807574834" target="_blank" rel="noopener">AKI ENARM</a>.</li>
+            <li>Entra con <b>Google</b> o con <b>Apple</b>.</li>
+            <li>Tu cuenta y tu progreso son los mismos que en la web.</li>
           </ol>
         </div>
       </div>

@@ -276,11 +276,28 @@ header.site.sobre-hero .menu-btn:hover{color:#8fe6b8}
 .jump::after{content:''; position:absolute; left:0; right:0; top:-10px; bottom:-10px}
 .jump:hover{text-decoration:underline}
 .stores{display:flex; flex-wrap:wrap; justify-content:center; gap:.5rem; margin-top:.4rem}
-.stores span,.stores a.store{
+.stores a.store{
   display:inline-block; border:1px solid rgba(255,255,255,0.32); background:rgba(255,255,255,0.10);
   color:#f1f7fb; border-radius:10px; padding:.5rem .9rem; font-size:.84rem; font-weight:700; text-decoration:none;
 }
 .stores a.store.live{border-color:rgba(79,199,138,.75); background:rgba(79,199,138,.18); color:#f1f7fb}
+/* t220: fila de tiendas — badge oficial de Apple primero (negro preferido, alto 50 px ≥ 40 px, aire de ¼ del alto = el gap)
+   y los gemelos de la casa con la misma altura y esquina: App web (disponible) y Google Play (próximamente). */
+.stores{gap:.75rem; align-items:center}
+.store-badge{display:inline-flex; align-items:center; height:50px; box-sizing:border-box; border-radius:8px; text-decoration:none; color:#f1f7fb; transition:transform .18s var(--ease-out)}
+.store-badge:hover{transform:translateY(-2px)}
+.store-badge img{display:block; height:50px; width:auto}
+.store-web,.store-soon{border:1px solid rgba(255,255,255,0.32); background:rgba(255,255,255,0.10); padding:0 1rem 0 .85rem; gap:.6rem}
+.store-web{border-color:rgba(79,199,138,.75); background:rgba(79,199,138,.18)}
+.store-soon{opacity:.7}
+.sb-ico{width:22px; height:22px; flex:none; color:#f1f7fb}
+.sb-ico svg{width:22px; height:22px; display:block}
+.sb-txt{display:flex; flex-direction:column; line-height:1.05; text-align:left}
+.sb-txt small{font-size:.66rem; font-weight:600; letter-spacing:.02em; opacity:.85}
+.sb-txt b{font-size:1.05rem; font-weight:800; font-family:var(--fuente-display)}
+.enlace-tienda{color:var(--verde); font-weight:800}
+/* t220: el «$» de Nunito lleva la barra rota (se lee como dólar); el de la fuente de texto (SF/Segoe/Roboto) la trae completa = peso. */
+.peso{font-family:var(--fuente-texto); font-weight:800}
 .arr{width:1em; height:1em; vertical-align:-.14em; margin-left:.4em}
 .hero-cue{
   position:absolute; bottom:1.1rem; left:50%; z-index:2; transform:translateX(-50%);
