@@ -23,6 +23,56 @@
     try { localStorage.setItem(CLAVE, nuevo); } catch (e) {}
   });
 
+  /* ---------- t226 (14-sep-2026, campaña de Instagram): en iPhone/iPad manda la App Store + atribución ----------
+     Quien llega desde el anuncio en iPhone o iPad debe ver PRIMERO «Descargar en el App Store»: el Smart App Banner de
+     Safari no aparece dentro del navegador de Instagram y el botón grande mandaba a la app web. El HTML no cambia (sin JS
+     todo sigue igual): se marca <html class="es-ios"> y los botones principales pasan a la tienda; Android y computadora
+     siguen en la app web hasta que exista Google Play. Prueba sin iPhone: ?dispositivo=ios (o android) fuerza la vista.
+     Atribución: si la visita trae utm_source (los anuncios llevan utm_source=instagram), se recuerda en sessionStorage y
+     TODOS los enlaces a la tienda usan el enlace de campaña de App Store Connect (pt = proveedor, ct = campaña), con lo que
+     App Analytics → Sources → Campaigns muestra las vistas y descargas de esa campaña por separado. */
+  var TIENDA = 'https://apps.apple.com/mx/app/aki-enarm/id6807574834';
+  var APP_WEB = 'https://app.akienarm.com';
+  var CAMPANAS = { instagram: 'https://apps.apple.com/app/apple-store/id6807574834?pt=129130425&ct=instagram_sep2026&mt=8' };
+  var params = null;
+  try { params = new URLSearchParams(location.search); } catch (e) { params = { get: function () { return null; } }; }
+  var utm = null;
+  try {
+    var fuenteUtm = params.get('utm_source');
+    if (fuenteUtm) { utm = { source: fuenteUtm.toLowerCase(), campaign: params.get('utm_campaign') || '', content: params.get('utm_content') || '' }; sessionStorage.setItem('aki_utm', JSON.stringify(utm)); }
+    else { utm = JSON.parse(sessionStorage.getItem('aki_utm') || 'null'); }
+  } catch (e) { utm = null; }
+  var enlaceTienda = (utm && CAMPANAS[utm.source]) || TIENDA;
+  var forzado = params.get('dispositivo');
+  var ua = navigator.userAgent || '';
+  var esIOS = forzado ? forzado === 'ios' : (/iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1));
+  function ponTexto(a, texto) {
+    for (var i = 0; i < a.childNodes.length; i++) {
+      if (a.childNodes[i].nodeType === 3 && a.childNodes[i].nodeValue.trim()) { a.childNodes[i].nodeValue = texto; return; }
+    }
+    a.insertBefore(document.createTextNode(texto), a.firstChild);
+  }
+  document.querySelectorAll('a[href="' + TIENDA + '"]').forEach(function (a) { a.href = enlaceTienda; a.setAttribute('data-destino', 'tienda'); });
+  if (esIOS) {
+    raiz.classList.add('es-ios');
+    document.querySelectorAll('a.btn-hero, a.cta-header, .plan a.btn').forEach(function (a) {
+      if (a.getAttribute('href') !== APP_WEB) return;
+      a.href = enlaceTienda;
+      a.setAttribute('data-destino', 'tienda');
+      if (a.classList.contains('cta-header')) ponTexto(a, 'App Store');
+      else if (!a.classList.contains('alt')) ponTexto(a, 'Descargar en el App Store');   /* «Empezar gratis» conserva su texto */
+    });
+  }
+  /* medición sin cookies (Vercel Web Analytics): visitas y UTM siempre; los eventos personalizados solo en el plan Pro */
+  function mide(nombre, datos) { try { if (typeof window.va === 'function') window.va('event', { name: nombre, data: datos }); } catch (e) {} }
+  document.addEventListener('click', function (ev) {
+    var a = ev.target && ev.target.closest ? ev.target.closest('a[href]') : null;
+    if (!a) return;
+    var h = a.getAttribute('href') || '';
+    if (a.getAttribute('data-destino') === 'tienda' || h.indexOf('https://apps.apple.com') === 0) mide('app_store', { origen: utm ? utm.source : 'directo', contenido: utm ? utm.content : '', ios: esIOS ? 1 : 0 });
+    else if (h.indexOf(APP_WEB) === 0) mide('app_web', { origen: utm ? utm.source : 'directo', ios: esIOS ? 1 : 0 });
+  }, true);
+
   /* ---------- reveal por scroll ---------- */
   var reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && !reduceMotion) {

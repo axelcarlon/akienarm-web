@@ -624,3 +624,7 @@ th{background:var(--surface-2); color:var(--ink)}
 @media (prefers-reduced-motion:reduce){
   .cf-carrusel{scroll-behavior:auto}
 }
+
+/* t226 (14-sep-2026): en iPhone/iPad (html.es-ios, lo pone site.js) el botón grande dice «Descargar en el App Store» y el badge
+   oficial sigue en la fila; el texto es más largo, así que baja un poco de tamaño para caber en una sola línea a 320 px. */
+html.es-ios .btn-hero{font-size:1.02rem; padding:1rem 1.6rem; white-space:nowrap}
