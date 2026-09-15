@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es" class="sin-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Descarga AKI ENARM</title>
+<!-- t226-b (15-sep-2026): página de aterrizaje del tráfico PAGADO (Instagram → «Download»). Sin menú ni scroll: lo primero que se
+     ve es la tienda. En iPhone/iPad abre la App Store SOLA tras pintar (enlace de campaña pt/ct si la visita trae utm_source),
+     con el badge y un botón grandes por si el navegador bloquea la apertura automática. Android y computadora: app web.
+     Prueba: /app?dispositivo=ios&utm_source=instagram (&auto=0 para ver la página sin que se abra la tienda). No se indexa. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Descarga AKI ENARM: casos clínicos, simuladores tipo examen y fichas basadas en guías de práctica clínica.">
+<meta name="theme-color" content="#0b0d12">
+<link rel="icon" href="/assets/favicon-48.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="apple-itunes-app" content="app-id=6807574834">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@800;900&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@800;900&display=swap"></noscript>
+<link rel="stylesheet" href="/styles.css">
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<style>
+  html,body{min-height:100%; margin:0}
+  body.aterrizaje{
+    background:#0b0d12 radial-gradient(120% 70% at 50% 0%, #1d2942 0%, #0b0d12 70%);
+    color:#f1f7fb; font-family:var(--fuente-texto); -webkit-font-smoothing:antialiased;
+    display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
+    min-height:100dvh; padding:max(16px, env(safe-area-inset-top)) 20px max(20px, env(safe-area-inset-bottom)); box-sizing:border-box;
+  }
+  .marca{font-family:var(--fuente-display); font-weight:900; font-size:1.35rem; letter-spacing:.01em; margin:0 0 .6rem}
+  .marca b{color:var(--verde)}
+  .aki{width:min(46vw, 190px); height:auto; margin:0 auto .4rem; filter:drop-shadow(0 18px 30px rgba(0,0,0,.45))}
+  h1{font-family:var(--fuente-display); font-weight:900; font-size:clamp(1.45rem, 6.4vw, 2rem); line-height:1.15; margin:0 0 .55rem; color:#fff}
+  h1 span{color:#c9b6ff}
+  .sub{font-size:.98rem; line-height:1.5; color:#d5deea; max-width:26rem; margin:0 auto 1.15rem}
+  .abriendo{display:none; font-size:.9rem; color:#8fd8b4; font-weight:700; margin:0 0 .8rem}
+  html.es-ios .abriendo.activo{display:block}
+  .badge{display:inline-block; margin:0 0 .9rem; transition:transform .18s var(--ease-out)}
+  .badge img{display:block; height:64px; width:auto}
+  .badge:active{transform:scale(.97)}
+  .btn-descarga{
+    display:inline-flex; align-items:center; justify-content:center; gap:.5rem; width:min(100%, 22rem); box-sizing:border-box;
+    background:var(--verde); color:#fff; text-decoration:none; font-family:var(--fuente-display); font-weight:900; font-size:1.1rem;
+    padding:1rem 1.4rem; border-radius:16px; box-shadow:0 6px 0 -1px var(--verde-hondo), 0 18px 40px rgba(79,199,138,.30);
+  }
+  .btn-descarga:active{transform:translateY(1px)}
+  .gratis{font-size:.82rem; color:#9fb0c3; margin:.8rem 0 1.3rem}
+  ul.beneficios{list-style:none; padding:0; margin:0 auto 1.4rem; max-width:24rem; text-align:left; display:grid; gap:.45rem}
+  ul.beneficios li{font-size:.92rem; line-height:1.4; color:#e6edf5; padding-left:1.5rem; position:relative}
+  ul.beneficios li::before{content:''; position:absolute; left:0; top:.42em; width:.8em; height:.8em; border-radius:50%; background:var(--verde)}
+  .otros{font-size:.86rem; color:#9fb0c3; line-height:1.55; max-width:24rem; margin:0 auto}
+  .otros a{color:#8fd8b4; font-weight:700; text-decoration:none}
+  .otros a:hover{text-decoration:underline}
+  html.es-ios .solo-otros{display:none}
+  html:not(.es-ios) .solo-ios{display:none}
+  html:not(.es-ios) .btn-descarga{display:none}
+  .pie{margin-top:1.6rem; font-size:.74rem; color:#6f7f92}
+  .pie a{color:#8a9bb0}
+  @media (prefers-reduced-motion: no-preference){ .aki{animation:flota 3.6s ease-in-out infinite} }
+  @keyframes flota{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+</style>
+</head>
+<body class="aterrizaje">
+  <p class="marca">AKI <b>ENARM</b></p>
+  <img class="aki" src="/assets/aki-hero.webp" alt="AKI, la mascota de AKI ENARM" width="750" height="1000" fetchpriority="high">
+  <h1>Prepárate para el ENARM <span>a tu ritmo</span></h1>
+  <p class="sub">Casos clínicos, simuladores con el reloj del examen y fichas basadas en guías de práctica clínica, en un camino gamificado.</p>
+  <p class="abriendo" id="abriendo">Abriendo la App Store…</p>
+  <a class="badge" id="badge" href="https://apps.apple.com/mx/app/aki-enarm/id6807574834" data-destino="tienda" aria-label="Consíguelo en el App Store"><img src="/assets/app-store-badge-es-mx.svg" alt="Consíguelo en el App Store" width="192" height="64"></a>
+  <a class="btn-descarga" id="btnDescarga" href="https://apps.apple.com/mx/app/aki-enarm/id6807574834" data-destino="tienda">Descargar gratis</a>
+  <p class="gratis">Gratis. Premium opcional dentro de la app.</p>
+  <ul class="beneficios">
+    <li>Casos clínicos verificados con las guías de práctica clínica.</li>
+    <li>Simulador con el formato y el reloj del ENARM.</li>
+    <li>Recordatorios para que no rompas tu racha de estudio.</li>
+  </ul>
+  <p class="otros solo-ios">¿Android o computadora? <a href="https://app.akienarm.com">Abre la app web</a>. Próximamente en Google Play.</p>
+  <p class="otros solo-otros">En iPhone y iPad está en la App Store. En Android y computadora funciona directo en el navegador: <a class="btn-web" href="https://app.akienarm.com">Abrir AKI</a>. Próximamente en Google Play.</p>
+  <p class="pie"><a href="/">akienarm.com</a> · <a href="/privacidad">Privacidad</a></p>
+<script>
+(function () {
+  'use strict';
+  document.documentElement.classList.remove('sin-js');
+  var TIENDA = 'https://apps.apple.com/mx/app/aki-enarm/id6807574834';
+  var APP_WEB = 'https://app.akienarm.com';
+  /* enlace de campaña de App Store Connect (App Analytics → Sources → Campaigns): pt = proveedor, ct = campaña */
+  var CAMPANAS = { instagram: 'https://apps.apple.com/app/apple-store/id6807574834?pt=129130425&ct=instagram_sep2026&mt=8' };
+  var params; try { params = new URLSearchParams(location.search); } catch (e) { params = { get: function () { return null; } }; }
+  var utm = null;
+  try {
+    var fuente = params.get('utm_source');
+    if (fuente) { utm = { source: fuente.toLowerCase(), campaign: params.get('utm_campaign') || '', content: params.get('utm_content') || '' }; sessionStorage.setItem('aki_utm', JSON.stringify(utm)); }
+    else { utm = JSON.parse(sessionStorage.getItem('aki_utm') || 'null'); }
+  } catch (e) { utm = null; }
+  var enlaceTienda = (utm && CAMPANAS[utm.source]) || TIENDA;
+  var forzado = params.get('dispositivo');
+  var ua = navigator.userAgent || '';
+  var esIOS = forzado ? forzado === 'ios' : (/iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1));
+  var origen = utm ? utm.source : 'directo';
+  function mide(nombre, datos) { try { if (typeof window.va === 'function') window.va('event', { name: nombre, data: datos }); } catch (e) {} }
+  document.querySelectorAll('[data-destino="tienda"]').forEach(function (a) { a.href = enlaceTienda; });
+  document.addEventListener('click', function (ev) {
+    var a = ev.target && ev.target.closest ? ev.target.closest('a[href]') : null;
+    if (!a) return;
+    if (a.getAttribute('data-destino') === 'tienda') mide('app_store', { origen: origen, contenido: utm ? utm.content : '', ios: esIOS ? 1 : 0, pagina: 'app' });
+    else if ((a.getAttribute('href') || '').indexOf(APP_WEB) === 0) mide('app_web', { origen: origen, ios: esIOS ? 1 : 0, pagina: 'app' });
+  }, true);
+  if (esIOS) {
+    document.documentElement.classList.add('es-ios');
+    /* apertura automática de la tienda: la página ya pintó (badge + botón visibles por si el navegador la bloquea) */
+    if (params.get('auto') !== '0') {
+      var aviso = document.getElementById('abriendo');
+      if (aviso) aviso.classList.add('activo');
+      setTimeout(function () {
+        mide('app_store_auto', { origen: origen, contenido: utm ? utm.content : '', pagina: 'app' });
+        try { window.location.href = enlaceTienda; } catch (e) {}
+      }, 700);
+    }
+  }
+})();
+</script>
+</body>
+</html>
