@@ -98,13 +98,26 @@
   var forzado = params.get('dispositivo');
   var ua = navigator.userAgent || '';
   var esIOS = forzado ? forzado === 'ios' : (/iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1));
+  /* t226-c (reporte de Axel, 15-sep: desde el anuncio «no manda directo a la App Store»): el navegador integrado de Instagram,
+     Facebook y Messenger es un WKWebView que NO reconoce los enlaces universales a apps.apple.com, así que la redirección se
+     quedaba en la página web de Apple. Con el esquema itms-apps:// iOS abre la app de la App Store directamente y conserva los
+     parámetros de campaña (pt/ct). En Safari y demás navegadores el enlace https sigue abriendo la tienda. ?nav=instagram fuerza
+     el modo integrado para probar. */
+  var enApp = /Instagram|FBAN|FBAV|FB_IAB|FBIOS|Messenger/i.test(ua) || params.get('nav') === 'instagram';
+  var enlaceTiendaApp = enlaceTienda.replace(/^https:\/\//i, 'itms-apps://');
+  var destinoIOS = enApp ? enlaceTiendaApp : enlaceTienda;
+  window.__aterrizaje = { esIOS: esIOS, enApp: enApp, destino: esIOS ? destinoIOS : APP_WEB };
   var origen = utm ? utm.source : 'directo';
   function mide(nombre, datos) { try { if (typeof window.va === 'function') window.va('event', { name: nombre, data: datos }); } catch (e) {} }
-  document.querySelectorAll('[data-destino="tienda"]').forEach(function (a) { a.href = enlaceTienda; });
+  document.querySelectorAll('[data-destino="tienda"]').forEach(function (a) { a.href = esIOS ? destinoIOS : enlaceTienda; });
   document.addEventListener('click', function (ev) {
     var a = ev.target && ev.target.closest ? ev.target.closest('a[href]') : null;
     if (!a) return;
-    if (a.getAttribute('data-destino') === 'tienda') mide('app_store', { origen: origen, contenido: utm ? utm.content : '', ios: esIOS ? 1 : 0, pagina: 'app' });
+    if (a.getAttribute('data-destino') === 'tienda') {
+      mide('app_store', { origen: origen, contenido: utm ? utm.content : '', ios: esIOS ? 1 : 0, enApp: enApp ? 1 : 0, pagina: 'app' });
+      /* si el navegador integrado bloquea el esquema al tocar, a los 1.5 s seguimos aquí: se abre la ficha web de Apple, que trae «Obtener» */
+      if (esIOS && enApp) setTimeout(function () { if (!document.hidden) { try { window.location.href = enlaceTienda; } catch (e) {} } }, 1500);
+    }
     else if ((a.getAttribute('href') || '').indexOf(APP_WEB) === 0) mide('app_web', { origen: origen, ios: esIOS ? 1 : 0, pagina: 'app' });
   }, true);
   if (esIOS) {
@@ -114,9 +127,14 @@
       var aviso = document.getElementById('abriendo');
       if (aviso) aviso.classList.add('activo');
       setTimeout(function () {
-        mide('app_store_auto', { origen: origen, contenido: utm ? utm.content : '', pagina: 'app' });
-        try { window.location.href = enlaceTienda; } catch (e) {}
-      }, 700);
+        mide('app_store_auto', { origen: origen, contenido: utm ? utm.content : '', enApp: enApp ? 1 : 0, pagina: 'app' });
+        try { window.location.href = destinoIOS; } catch (e) {}
+        /* si a los 2 s la página sigue a la vista, el navegador no dejó abrir la tienda solo: se pide el toque (el botón lleva el
+           mismo destino; dentro de Instagram el toque sí abre la App Store) */
+        setTimeout(function () {
+          if (!document.hidden && aviso) aviso.textContent = 'Toca «Descargar gratis» para abrir la App Store.';
+        }, 2000);
+      }, 500);
     }
   }
 })();
